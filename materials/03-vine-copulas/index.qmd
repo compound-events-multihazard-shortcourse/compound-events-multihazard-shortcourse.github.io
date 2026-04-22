@@ -19,17 +19,21 @@ Judith Claassen is a researcher at the Institute for Environmental Studies (IVM)
 
 ## Overview
 
-This presentation introduces vine copulas as a flexible framework for modelling
-multivariate dependence structures in compound events. You will work through
-two hands-on notebooks:
+This presentation covers the use of copulas for modelling multivariate dependencies
+between the variables involved in compound and extreme events, organised around three
+areas:
 
-- **Part 1** covers bivariate copulas: copula families, the probability integral
-  transform, fitting, CDF/PDF computation, and conditional/unconditional sampling.
-- **Part 2** extends to vine copulas: C-vines and D-vines for modelling
-  higher-dimensional dependence structures relevant to compound hazard analysis.
+- **Copula foundations**, including Sklar's theorem and how copulas separate marginal
+  distributions from the dependence structure, and the main bivariate copula families
+  used to capture symmetric, asymmetric, and tail-dependent relationships
 
-The [VineCopulas](https://github.com/VU-IVM/VineCopulas) Python package (v2.0.3)
-is used throughout. It is developed by VU-IVM and freely available on GitHub.
+- **Vine copulas for higher dimensions**, including the pair-copula construction that
+  builds multivariate models from bivariate building blocks, the tree structure of
+  regular vines, and the C-vine and D-vine subclasses
+
+- **Applications to extreme events**, including random and conditional sampling from
+  fitted copulas, and their use in characterising the joint occurrence of hazards and
+  drivers for compound event analysis
 
 ## Setup
 
