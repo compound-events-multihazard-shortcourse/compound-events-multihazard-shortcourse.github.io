@@ -1,0 +1,185 @@
+/*-- scss:rules --*/
+
+// Schedule table --------------------------------------------------------------
+// Apply to a div wrapping the markdown table: ::: {.schedule-table}
+
+.schedule-table table {
+  display: table !important;
+  white-space: normal !important;
+  overflow-x: visible !important;
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+.schedule-table thead th {
+  font-family: Barlow, sans-serif;
+  font-weight: 500;
+  border-bottom: 2px solid var(--bs-primary);
+  padding: 0.5rem 0.8rem;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  // Uses Bootstrap primary RGB variable for tinted stripes.
+  // Fallback: if --bs-primary-rgb is unavailable, use a hardcoded tint.
+  background-color: rgba(var(--bs-primary-rgb, 76, 133, 159), 0.08);
+}
+
+.schedule-table td {
+  padding: 0.55rem 0.8rem;
+  vertical-align: top;
+}
+
+.schedule-table a {
+  color: var(--bs-primary);
+}
+
+
+// Section headings ------------------------------------------------------------
+
+main h2 {
+  margin-top: 1.5rem !important;
+}
+
+
+// Speaker cards ---------------------------------------------------------------
+// Targets Quarto's .columns layout used in index.qmd
+
+.columns {
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.column p {
+  text-align: justify;
+}
+
+img.rounded-circle {
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+
+// Navbar notebook sub-items ---------------------------------------------------
+// Visually indent specific notebook links to subordinate them under session items
+
+.navbar .dropdown-menu .dropdown-item[href$="bivariatecopulas.html"],
+.navbar .dropdown-menu .dropdown-item[href$="bivariatecopulas.ipynb"],
+.navbar .dropdown-menu .dropdown-item[href$="vinecopulas.html"],
+.navbar .dropdown-menu .dropdown-item[href$="vinecopulas.ipynb"],
+.navbar .dropdown-menu .dropdown-item[href*="notebook"] {
+  padding-left: 2rem;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+
+// Notebook pages (.quarto-notebook body class) --------------------------------
+
+// Prevent Tables from overlapping the TOC
+/* Quarto uses the .table class, which needs to be forced into a block for scrolling */
+table.table {
+  display: block;
+  width: 100% !important;
+  overflow-x: auto; /* Forces a horizontal scrollbar if it exceeds the column */
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+  white-space: nowrap; /* Keeps table cells from squishing too much */
+}
+
+// Prevent MathJax Matrices from overlapping the TOC
+mjx-container[display="true"],
+.math.display {
+  display: block;
+  max-width: 100% !important;
+  font-size: 0.85em;
+  overflow-x: auto !important; /* Adds a scrollbar to giant matrices */
+  overflow-y: hidden !important;
+  padding-bottom: 0.5rem; /* Prevents the scrollbar from clipping the bottom of the math */
+  padding-top: 0.5rem;
+}
+
+
+// Constrain Images to the content column
+img.figure-img,
+.quarto-figure img,
+.cell-output-display img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 1.5rem auto; /* Centers the images nicely */
+}
+
+// Give Algorithm sections (Lists & Text) room to breathe */
+/* Increase line height and spacing for better readability */
+.quarto-notebook ol li,
+.quarto-notebook ul li {
+  line-height: 1.8;
+  margin-bottom: 0.85rem;
+}
+
+/* Ensure nested lists have a little extra gap at the top */
+.quarto-notebook ol ol,
+.quarto-notebook ul ul,
+.quarto-notebook ol ul,
+.quarto-notebook ul ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+// Algorithm sections (Lists & Text) room to breathe
+// Target the main document content to guarantee the styles apply
+#quarto-document-content {
+
+  ol, ul {
+    padding-left: 2rem; /* Gives the numbers proper indentation */
+
+    li {
+      line-height: 2.2; /* Extra tall line-height for tall inline MathJax */
+      margin-bottom: 1rem; /* Space between main steps */
+
+      /* Target paragraphs inside lists to prevent margin collapsing */
+      p {
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Style Nested lists */
+      ol, ul {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+
+        li {
+          margin-bottom: 0.75rem; /* Space out the sub-steps */
+        }
+      }
+    }
+  }
+}
+
+
+// Footer ----------------------------------------------------------------------
+
+.nav-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 1.25rem 2rem;
+}
+
+.nav-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-footer-left img {
+  max-height: 50px;
+  width: auto;
+}
+
+.nav-footer-right {
+  font-size: 0.80rem;
+  color: #6c757d;
+  text-align: right;
+}

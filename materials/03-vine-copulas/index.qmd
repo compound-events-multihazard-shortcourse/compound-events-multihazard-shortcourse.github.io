@@ -1,0 +1,61 @@
+---
+title: "Application I: Vine Copulas for Multivariate Dependence"
+---
+
+::: {.callout-note}
+Slides for this session will be posted shortly before the course.
+:::
+
+**Speaker:** Judith Claassen | Vrije Universiteit Amsterdam
+
+::: {.columns .align-items-center}
+::: {.column width="20%"}
+![](../../images/judith_github.jpg){.rounded-circle width="130px"}
+:::
+::: {.column width="80%"}
+Judith Claassen is a researcher at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She earned her bachelor degree in Earth and Environmental Sciences at the Amsterdam University College, and holds a master in Civil Engineering: Water Management from TU Delft. Her research focuses on modelling multi-hazard events using probabilistic methods, such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also served as the first chair of the Early Career Researcher board
+:::
+:::
+
+## Overview
+
+This presentation introduces vine copulas as a flexible framework for modelling
+multivariate dependence structures in compound events. You will work through
+two hands-on notebooks:
+
+- **Part 1** covers bivariate copulas: copula families, the probability integral
+  transform, fitting, CDF/PDF computation, and conditional/unconditional sampling.
+- **Part 2** extends to vine copulas: C-vines and D-vines for modelling
+  higher-dimensional dependence structures relevant to compound hazard analysis.
+
+The [VineCopulas](https://github.com/VU-IVM/VineCopulas) Python package (v2.0.3)
+is used throughout. It is developed by VU-IVM and freely available on GitHub.
+
+## Setup
+
+You need **Python 3.10+** and the `vinecopulas` package. Install it with pip:
+
+```bash
+pip install vinecopulas jupyterlab "pandas<2.2" "numpy<1.27" "matplotlib<3.9"
+```
+
+Then launch Jupyter and open the notebook files:
+
+```bash
+jupyter notebook
+```
+
+## Notebooks
+
+::: {.schedule-table}
+
+| Notebook | Content | Download |
+|---|---|---|
+| Part 1: Bivariate Copulas | Copula families, probability integral transform, fitting, CDF/PDF, conditional sampling | [bivariatecopulas.ipynb](bivariatecopulas.ipynb) |
+| Part 2: Vine Copulas | C-vines, D-vines, multivariate dependence, simulation | [vinecopulas.ipynb](vinecopulas.ipynb) |
+
+:::
+
+## Slides
+
+*Slides will be posted shortly before the course.*

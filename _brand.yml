@@ -1,0 +1,43 @@
+#
+# _brand.yml following MedEWsa guidelines
+#
+
+meta:
+  name: Compound Events and Multi-Hazard Analytics Short Course
+  description: "EGU26 Compound Events and Multi-Hazard Analytics Short Course"
+  link:
+    home: https://www.egu26.eu/session/56950 # Update here later
+
+color:
+  palette:
+    medewsa-primary: "#4C859F"
+    medewsa-blue-1: "#63A7D7"
+    medewsa-blue-2: "#9DCAEB"
+    medewsa-cyan: "#95DAE5"
+    medewsa-black: "#111111"
+    white: "#FFFFFF"
+
+  background: white
+  foreground: medewsa-black
+  primary: medewsa-primary
+  secondary: medewsa-blue-1
+  tertiary: medewsa-blue-2
+  dark: medewsa-black
+
+typography:
+  fonts:
+    - family: Roboto
+      source: google
+      weight: [300, 400]
+    - family: Barlow          # originally we have Dinosaur font, but I don't know if we have it, so changed to barlow
+      source: google
+      weight: [400, 500, 600]
+
+  base:
+    family: Roboto
+    weight: 300
+
+  headings:
+    family: Barlow
+    weight: 500
+    color: medewsa-primary

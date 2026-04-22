@@ -1,0 +1,37 @@
+---
+title: "Introduction II: From Single-Hazard to Multi-Risk"
+---
+
+::: {.callout-note}
+Materials for this session will be posted shortly before the course.
+:::
+
+**Speaker:** Marleen de Ruiter | Vrije Universiteit Amsterdam
+
+::: {.columns .align-items-center}
+::: {.column width="20%"}
+![](../../images/marleen_vu_page.webp){.rounded-circle width="130px"}
+:::
+::: {.column width="80%"}
+Marleen de Ruiter is an Assistant Professor in the Department of Water and Climate
+Risk at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam.
+Her research focuses on multi-hazard risk modelling, early warning systems, and the
+temporal dynamics of disaster vulnerability.
+She is an expert on consecutive disasters and systemic risk, currently serving as the co-chair of the&nbsp;<a href="https://www.risk-kan.org/" target="_blank">RiskKAN</a>&nbsp;network and co-leading the Amsterdam Sustainability Institute (<a href="https://vu.nl/en/about-vu/research-institutes/amsterdam-sustainability-institute/more-about/asi-cluster-natural-hazards-and-society" target="_blank">ASI</a>) cluster on Natural Hazards &amp; Society. In 2024, she was honored with the&nbsp;<a href="https://www.egu.eu/awards-medals/division-outstanding-ecs-award/2024/marleen-c-de-ruiter/" target="_blank">EGU Natural Hazards Division Outstanding Early Career Scientist</a>&nbsp;award.
+:::
+:::
+
+## Overview
+
+This presentation covers the evolution from single-hazard to multi-risk
+thinking in disaster science and policy, organised around three areas:
+
+- **Conceptual frameworks and terminology**, including the typologies of compound, consecutive, and systemic risk, and the international policy shifts (Sendai, UNDRR GAR) that pushed the field beyond hazard silos
+
+- **Data and methodological advances**, with a focus on why vulnerability has received less attention than hazards in multi-risk assessment, the data gaps behind dynamic vulnerability, the challenge of multi-risk impact attribution, and newer methods for global multi-hazard event sets, exposure mapping, and recovery analysis
+
+- **Challenges for risk management**, including asynergies between risk reduction measures (where addressing one hazard can worsen another), early warning for complex events, lessons from forensic analysis of past multi-hazard disasters, and equitable adaptation across vulnerability groups
+
+## Slides
+
+*Slides will be posted shortly before the course.*
