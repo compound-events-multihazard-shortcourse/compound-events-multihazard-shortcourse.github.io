@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Vine Copulas – EGU26 - Short Course: Compound Events and Multi-Hazard Analytics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EGU26 - Short Course: Compound Events and Multi-Hazard Analytics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introductions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introductions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introductions">    
+        <li>
+    <a class="dropdown-item" href="../../materials/01-intro-compound-events/index.html">
+ <span class="dropdown-text">Overview of Compound Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/02-intro-multi-risk/index.html">
+ <span class="dropdown-text">From Single-Hazard to Multi-Risk</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-applications" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Applications</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-applications">    
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/index.html">
+ <span class="dropdown-text">Vine Copulas: Overview &amp; Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/bivariatecopulas.html">
+ <span class="dropdown-text">Notebook 1: Bivariate Copulas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/vinecopulas.html">
+ <span class="dropdown-text">Notebook 2: Vine Copulas</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../materials/04-llm-impact-extraction/index.qmd">
+ <span class="dropdown-text">LLM Impact Extraction: Overview &amp; Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/04-llm-impact-extraction/notebook.ipynb">
+ <span class="dropdown-text">Notebook: Impact Extraction</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#general-introduction-to-vine-copulas" id="toc-general-introduction-to-vine-copulas" class="nav-link active" data-scroll-target="#general-introduction-to-vine-copulas">General Introduction to Vine Copulas</a></li>
+  <li><a href="#fitting-a-vine-copula" id="toc-fitting-a-vine-copula" class="nav-link" data-scroll-target="#fitting-a-vine-copula">Fitting a Vine Copula</a></li>
+  <li><a href="#matrix-representation-of-a-vine-copula" id="toc-matrix-representation-of-a-vine-copula" class="nav-link" data-scroll-target="#matrix-representation-of-a-vine-copula">Matrix Representation of a Vine Copula</a></li>
+  <li><a href="#generating-random-samples-from-a-vine-copula" id="toc-generating-random-samples-from-a-vine-copula" class="nav-link" data-scroll-target="#generating-random-samples-from-a-vine-copula">Generating Random Samples from a Vine Copula</a></li>
+  <li><a href="#density-function-of-a-vine-copula" id="toc-density-function-of-a-vine-copula" class="nav-link" data-scroll-target="#density-function-of-a-vine-copula">Density Function of a Vine Copula</a></li>
+  <li><a href="#conditional-sampling" id="toc-conditional-sampling" class="nav-link" data-scroll-target="#conditional-sampling">Conditional Sampling</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vine Copulas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="general-introduction-to-vine-copulas" class="level2">
+<h2 class="anchored" data-anchor-id="general-introduction-to-vine-copulas">General Introduction to Vine Copulas</h2>
+<p>A vine copula model is a method to construct multivariate copulas with the use of bivariate copulas as building blocks (see <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html">Bivariate Copulas</a>). We follow the theory provided by Czado &amp; Nagler (2021). The basis of a vine copula is conditioning (Aas et al., 2009; Czado &amp; Nagler, 2021).</p>
+<p>A nested sequence of trees can be used to describe a vine copula. Each tree consists of nodes and edges, where nodes represent variables, and edges represent the dependencies between them, as illustrated in Figure 1.</p>
+<figure class="figure">
+<img src="vinceopulastructure.png" alt="Vine Copula Structure" class="figure-img">
+<figcaption>
+Figure 1: Tree structure of a vine copula.
+</figcaption>
+</figure>
+<p>For a <span class="math inline">\(d\)</span>-dimensional vine distribution, the first tree, <span class="math inline">\(T_1\)</span>, identifies <span class="math inline">\(d − 1\)</span> pairs of variables (edges), which are associated with a pair-copula. This is showcased in Figure 1, where there are four variables (<span class="math inline">\(d=4\)</span>), and there are three pairs. The second tree, <span class="math inline">\(T_2\)</span>, identifies <span class="math inline">\(d − 2\)</span> pairs of variables, whose distribution, conditional on a single variable, is also modeled by a pair-copula. In <span class="math inline">\(T_2\)</span> the first conditioning variables are determined, which in Figure 1 are variable 4 and 3. The proceeding trees will have <span class="math inline">\(d - i\)</span> pairs, where <span class="math inline">\(i\)</span> is the tree number, until there is only one pair left. The final conditioning set in <span class="math inline">\(T_{d-1}\)</span> consists of all conditioning variables throughout the preceding trees. In Figure 1 it can also be observed that the edges of one tree become the nodes of the next. Two nodes in <span class="math inline">\(T_{i+1}\)</span> are only connected by an edge if these nodes share a common node in tree <span class="math inline">\(T_{i}\)</span>.</p>
+<p>In this tutorial, vine copulas will further be explained with the use of an example dataset.</p>
+<div id="71d8888f" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vinecopulas.marginals <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vinecopulas.vinecopula <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The data used as an example is the Abalone dataset from the <a href="http://archive.ics.uci.edu/ml/datasets/Abalone">UCI database</a> and has also been showcased in a chapter on vine copula-based modeling by Czado and Nagler (2021). The data set contains measurements on diameter, length, and several types of weight (whole, shucked, viscera and shell) of abalones, a type of marine snail. For this example, only data on the female snails are included and are loaded below.</p>
+<div id="b1961764" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datapath <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/VU-IVM/vinecopula/develop/doc/sample_data.csv"</span>  <span class="co"># path to data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(datapath)  <span class="co"># load data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.head()  <span class="co"># show data columns and first rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">whole</th>
+<th data-quarto-table-cell-role="th">shuck</th>
+<th data-quarto-table-cell-role="th">vis</th>
+<th data-quarto-table-cell-role="th">shell</th>
+<th data-quarto-table-cell-role="th">diameter</th>
+<th data-quarto-table-cell-role="th">length</th>
+<th data-quarto-table-cell-role="th">rings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>0.6770</td>
+<td>0.2565</td>
+<td>0.1415</td>
+<td>0.21</td>
+<td>0.420</td>
+<td>0.530</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>0.7775</td>
+<td>0.2370</td>
+<td>0.1415</td>
+<td>0.33</td>
+<td>0.415</td>
+<td>0.530</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>0.7680</td>
+<td>0.2940</td>
+<td>0.1495</td>
+<td>0.26</td>
+<td>0.425</td>
+<td>0.545</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>0.8945</td>
+<td>0.3145</td>
+<td>0.1510</td>
+<td>0.32</td>
+<td>0.440</td>
+<td>0.550</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>0.6065</td>
+<td>0.1940</td>
+<td>0.1475</td>
+<td>0.21</td>
+<td>0.380</td>
+<td>0.525</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>As explained in the section on <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html">bivariate copulas</a>, in order to fit copulas, the data needs to be transformed into uniformly distributed marginals. In this example we will do so by determining the best fit distribution of each variable in the dataset and applying the CDF of that distribution to the variable (<a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html#Probability-Integral-Transform">probability integral transform</a>). The best fit distribution and its parameters can be determined using the <code>best_fit_distribution</code> function, and the CDF can be calculated using the statistical function provided in <code>scipy.stats</code>, as showcased below.</p>
+<div id="ee231ed9" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(df)[:, :<span class="op">-</span><span class="dv">1</span>]  <span class="co"># turn dataframe into an array</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> x.copy()  <span class="co"># make a copy of data which will be transformed</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>])):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    namedist <span class="op">=</span> <span class="st">"dist"</span> <span class="op">+</span> <span class="bu">str</span>(i)  <span class="co"># define a name for the distribution of each variable</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">locals</span>()[namedist] <span class="op">=</span> best_fit_distribution(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        x[:, i]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    )  <span class="co"># fit the best fit distribution to each variable</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    u[:, i] <span class="op">=</span> <span class="bu">locals</span>()[namedist][<span class="dv">0</span>].cdf(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        u[:, i], <span class="op">*</span><span class="bu">locals</span>()[namedist][<span class="dv">1</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    )  <span class="co"># compute the CDF of the variable using the best fit distribution</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After transforming the data we can plot both the original data and the transformed data to compare the scatter plots between all the different variables in the dataset.</p>
+<div id="92641c46" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">6</span>, <span class="dv">6</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ii <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>jj <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axs[i, j]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> j:  <span class="co"># Lower diagonal</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ii <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                    x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>, label<span class="op">=</span><span class="st">"original data"</span>, color<span class="op">=</span><span class="st">"#1f77b4"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                ii <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>, color<span class="op">=</span><span class="st">"#1f77b4"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">&lt;</span> j:  <span class="co"># Upper diagonal</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> jj <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    u[:, j],</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                    u[:, i],</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed Data"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"#88c999"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                jj <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                ax.scatter(u[:, j], u[:, i], marker<span class="op">=</span><span class="st">"."</span>, color<span class="op">=</span><span class="st">"#88c999"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Main diagonal</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            ax.text(</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                df.columns[i],</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                horizontalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                verticalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>            ax.set_xticks([])</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>            ax.set_yticks([])</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>fig.legend(</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"upper center"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.03</span>), ncol<span class="op">=</span><span class="dv">2</span>, markerscale<span class="op">=</span><span class="dv">4</span>, fontsize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-a-vine-copula" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-a-vine-copula">Fitting a Vine Copula</h2>
+<p>Once the data has been transformed, a vine copula can be fit to it. In a vine copula model, each pair of variables is associated with a specific bivariate copula that models the dependence structure between them. These copulae are fitted individually to each pair, capturing the underlying dependency patterns between them. The following table shows the available copula types in this package and their ID. The ID is used as an input parameter in the fitting function to indicate which copula needs to be considered when fitting a vine copula.</p>
+<p><strong>Table 1</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 9%">
+<col style="width: 57%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th><strong>Copula</strong></th>
+<th><span class="math inline">\(\mathbf{C(u_1, u_2)}\)</span></th>
+<th><strong>Parameters</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Gaussian</td>
+<td><span class="math inline">\(\Phi_{\theta}(\Phi^{-1}(u_1),\Phi^{-1}(u_2))\)</span></td>
+<td><span class="math inline">\(\theta \in [-1, 1]\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Gumbel</td>
+<td><span class="math inline">\(\exp \!\left[-\left((-\log(u_1))^{\theta }+(-\log(u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Gumbel 90 degrees</td>
+<td><span class="math inline">\(u_2 - \exp \!\left[-\left((-\log(1-u_1))^{\theta }+(-\log(u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Gumbel 180 degrees</td>
+<td><span class="math inline">\(u_1 + u_2 - 1 + \exp \!\left[-\left((-\log(1-u_1))^{\theta }+(-\log(1-u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Gumbel 270 degrees</td>
+<td><span class="math inline">\(u_1 - \exp \!\left[-\left((-\log(u_1))^{\theta }+(-\log(1- u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Clayton</td>
+<td><span class="math inline">\(\left[\max \left\{u_1^{-\theta }+u_2^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Clayton 90 degrees</td>
+<td><span class="math inline">\(u_2 - \left[\max \left\{(1-u_1)^{-\theta }+u_2^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Clayton 180 degrees</td>
+<td><span class="math inline">\(u_1 + u_2 - 1 + \left[\max \left\{(1-u_1)^{-\theta }+(1-u_2)^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Clayton 270 degrees</td>
+<td><span class="math inline">\(u_1 - \left[\max \left\{u_1^{-\theta }+(1-u_2)^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Frank</td>
+<td><span class="math inline">\(-{\frac {1}{\theta }}\log \!\left[1+{\frac {(\exp(-\theta u)-1)(\exp(-\theta v)-1)}{\exp(-\theta )-1}}\right]\)</span></td>
+<td><span class="math inline">\(\theta \in \mathbb{R} \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Joe</td>
+<td><span class="math inline">\({1-\left[(1-u_1)^{\theta }+(1-u_2)^{\theta }-(1-u_1)^{\theta }(1-u_2)^{\theta }\right]^{1/\theta }}\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Joe 90 degrees</td>
+<td><span class="math inline">\({u_2 - (1-\left[(u_1)^{\theta }+(1-u_2)^{\theta }-(u_1)^{\theta }(1-u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Joe 180 degrees</td>
+<td><span class="math inline">\({u_1 + u_2 -\left[(u_1)^{\theta }+(u_2)^{\theta }-(u_1)^{\theta }(u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Joe 270 degrees</td>
+<td><span class="math inline">\({u_1 - (1-\left[(1-u_1)^{\theta }+(u_2)^{\theta }-(1-u_1)^{\theta }(u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Student</td>
+<td><span class="math inline">\(T_{\theta_2} \left( T_{\theta_2}^{-1}(u_1), T_{\theta_2}^{-1}(u_2); \theta_1 \right)\)</span></td>
+<td><span class="math inline">\(\theta_1 \in [-1, 1] \text{ and } \theta_2 \in [0, \infty)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\Phi_{\theta}\)</span> is the bivariate standard normal cumulative distribution function with correlation parameter <span class="math inline">\(\theta\)</span>.</li>
+<li><span class="math inline">\(\Phi^{-1}\)</span> is the inverse of the univariate standard normal cumulative distribution function.</li>
+<li><span class="math inline">\(T_{\theta_2}\)</span> is the bivariate cumulative distribution function (CDF) of the Student’s t distribution with <span class="math inline">\(\theta_2\)</span> degrees of freedom and correlation parameter <span class="math inline">\(\theta_1\)</span>.</li>
+<li><span class="math inline">\(T_{\theta_2}^{-1}\)</span> is the inverse univariate CDF of the Student’s t distribution with <span class="math inline">\(\theta_2\)</span> degrees of freedom.</li>
+</ul>
+<section id="the-dißmann-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="the-dißmann-algorithm">The Dißmann Algorithm</h3>
+<p>There are different types of regular vine structures, of which the general R-vine is the most flexible. The specific vine copula types will be showcased in a later subsection. Here, we will focus on a general algorithm to fit an R-vine. A vine copula can be fitted by testing all the different possible vine structures and minimizing the model selection criteria, such as BIC and AIC. This method is feasible when there are only a small amount of variables, for example, there are only 3 possible vine structures for a vine copula of three variables. However, as the number of variables increases, the number of possible vine structures increases exponentially as <span class="math inline">\(d! \times 2^{\frac{{(d-2)(d-3)}}{{2}}-1}\)</span> (Morales Napoles, 2011). This means that with the six variables we are using in this example, there are already over 20,000 possible vine structures. Therefore, the Dißmann algorithm (Dißmann et al., 2013) has been developed, which fits a vine copula by fitting the strongest dependencies first.</p>
+<hr>
+<p><strong>Algorithm 1</strong>: The Dißmann Algorithm, a sequential method to select an R-vine model based on Kendall’s tau.</p>
+<hr>
+<p><strong>Input:</strong> Data <span class="math inline">\(U = [\mathbf{u}_{1}, \ldots, \mathbf{u}_{d}]\)</span>, of length 𝑛 , i.e., <span class="math inline">\(\mathbf{u}=[𝑢_{11},...,𝑢_{𝑛1}]\)</span></p>
+<p><strong>Output:</strong> R-vine copula specification in the form of triangular matrices, <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span> and <span class="math inline">\(C\)</span>.</p>
+<ol type="1">
+<li><p>Calculate the empirical Kendall’s tau <span class="math inline">\(\hat{\tau}_{j,k}\)</span> for all possible variable pairs <span class="math inline">\({j, k}\)</span>, <span class="math inline">\(1 \leq j &lt; k \leq d\)</span>.</p></li>
+<li><p>Select the spanning tree that maximizes the sum of absolute empirical Kendall’s taus, i.e.,</p>
+<p><span class="math display">\[
+\max \sum_{e=\{j,k\} \text{ in spanning tree}} |\hat{\tau}_{j,k}|.
+\]</span></p></li>
+<li><p>For each edge <span class="math inline">\(\{j, k\}\)</span> in the selected spanning tree, select a copula and estimate the corresponding parameter(s). Then transform <span class="math inline">\(C_{j|k}( \mathbf{u}_{j}|\mathbf{u}_{k})\)</span> and <span class="math inline">\(C_{k|j}( \mathbf{u}_{k}|\mathbf{u}_{j})\)</span> using the fitted copula <span class="math inline">\({C}_{jk}\)</span>.</p></li>
+<li><p><strong>for</strong> <span class="math inline">\(i = 2, \ldots, d - 1\)</span> <strong>do</strong> {Iteration over the trees}</p>
+<ol type="1">
+<li>Calculate the empirical Kendall’s tau <span class="math inline">\(\hat{\tau}_{j,k|D}\)</span> for all conditional variable pairs <span class="math inline">\(\{j, k|D\}\)</span> that can be part of tree <span class="math inline">\(T_i\)</span>, i.e., two nodes that share a node in <span class="math inline">\(T_{i-1}\)</span>.</li>
+<li>Among these edges, select the spanning tree that maximizes the sum of absolute empirical Kendall’s taus, i.e.,</li>
+</ol>
+<p><span class="math display">\[
+\max \sum_{e=\{j,k|D\} \text{ in spanning tree}} |\hat{\tau}_{j,k|D}|.
+\]</span></p>
+<ol start="3" type="1">
+<li>For each edge <span class="math inline">\(\{j, k|D\}\)</span> in the selected spanning tree, select a conditional copula and estimate the corresponding parameter(s). Then transform <span class="math inline">\(C_{j|k \cup D}(\mathbf{u}_{j}|\mathbf{u}_{k}, \mathbf{u}_{D})\)</span> and <span class="math inline">\(C_{k|j \cup D}(\mathbf{u}_{k}|\mathbf{u}_{j}, \mathbf{u}_{D})\)</span>, using the fitted copula <span class="math inline">\(C_{j,k|D}\)</span>.</li>
+</ol></li>
+<li><p><strong>end for</strong></p></li>
+</ol>
+<hr>
+<p>While in <span class="math inline">\(T_1\)</span> the pseudo data to which the copulas will be fit are just the transformed variables in <span class="math inline">\(U\)</span>, in subsequent trees, <span class="math inline">\((T_{2}, \ldots, T_{d-1})\)</span>, the pseudo data are the conditional CDF’s of the edges in the previous tree (see <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html#Conditional-Cumulative-Distribution-Function-(h-function)">conditional CDF</a>). For example, in Figure 1, <span class="math inline">\(T_1\)</span>, Node <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> are connected by edge <span class="math inline">\(\{1,3\}\)</span>, and node <span class="math inline">\(3\)</span> and <span class="math inline">\(4\)</span> are connected by edge <span class="math inline">\(\{3,4\}\)</span>. The edges <span class="math inline">\(\{1,3\}\)</span> and <span class="math inline">\(\{3,4\}\)</span> become nodes in <span class="math inline">\(T_2\)</span>, and can be connected by an edge because they share a common node in the previous tree, node <span class="math inline">\(3\)</span>. As node <span class="math inline">\(3\)</span> is their common node, this becomes the conditioning variable. Therefore, to fit <span class="math inline">\(C_{1,4|3}\)</span>, the pseudo data is as follows:</p>
+<p><span class="math display">\[
+\mathbf{u}_{1|3} = {C_{1|3}(\mathbf{u}_{1}|\mathbf{u}_{3})}
+\quad \textrm{and} \quad
+\mathbf{u}_{4|3} = {C_{4|3}(\mathbf{u}_{4}|\mathbf{u}_{3})}
+\tag{1}
+\]</span></p>
+<p>Such that the copula for edge <span class="math inline">\(\{1,4|3\}\)</span> can be fitted as <span class="math inline">\({C_{1,4|3}(\mathbf{u}_{1|3},\mathbf{u}_{4|3})}\)</span> (Czado and Nagler, 2021).</p>
+<p>To fit a vine copula based on Algorithm 1, the <code>fit_vinecop</code> function can be used, and plotted using the <code>plotvine</code>, as showcased below.</p>
+<div id="515a15ca" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cops <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">16</span>))  <span class="co"># fit vine copula according to these copulas</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>M, P, C <span class="op">=</span> fit_vinecop(u, cops, vine<span class="op">=</span><span class="st">"R"</span>)  <span class="co"># fit R-vine</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plotvine(M, variables<span class="op">=</span><span class="bu">list</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>]), plottitle<span class="op">=</span><span class="st">"R-Vine"</span>)  <span class="co"># plot structure</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>** Tree:  1
+1,0  ---&gt;  Gumbel180 : parameters =  5.646871761936536
+3,0  ---&gt;  Gumbel180 : parameters =  4.89136322482854
+2,0  ---&gt;  Gumbel180 : parameters =  4.948878429859094
+0,5  ---&gt;  Gumbel180 : parameters =  5.326271458307189
+4,5  ---&gt;  Gumbel180 : parameters =  6.401980791090651
+** Tree:  2
+1,3|0  ---&gt;  Student : parameters =  [-0.6498732276928038, 5.596346619337978]
+3,2|0  ---&gt;  Gumbel90 : parameters =  1.1569192475896992
+2,5|0  ---&gt;  Gumbel0 : parameters =  1.0620878381699526
+0,4|5  ---&gt;  Student : parameters =  [0.40242691287942595, 5.843813413041781]
+** Tree:  3
+1,2|3,0  ---&gt;  Student : parameters =  [-0.4214997874814985, 5.501218461337544]
+3,5|2,0  ---&gt;  Gumbel180 : parameters =  1.0418687426855557
+2,4|5,0  ---&gt;  Frank : parameters =  -0.4796775825232916
+** Tree:  4
+1,5|2,3,0  ---&gt;  Student : parameters =  [0.20324678194756396, 14.23477345397924]
+3,4|5,2,0  ---&gt;  Frank : parameters =  1.487990484117525
+** Tree:  5
+1,4|5,2,3,0  ---&gt;  Clayton0 : parameters =  0.043531066572461</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="vine-copula-types" class="level3">
+<h3 class="anchored" data-anchor-id="vine-copula-types">Vine Copula Types</h3>
+<figure class="figure">
+<img src="vinecopulatypes.png" alt="Vine Copula Structure" class="figure-img">
+<figcaption>
+Figure 2: Different vine copula types.
+</figcaption>
+</figure>
+<p>As indicated previously, there are two subclasses of regular vines, known as, Drawable Vine (D-vine) and Canonical Vine (C-Vine) (see Figure 2).</p>
+<section id="d-vine" class="level4">
+<h4 class="anchored" data-anchor-id="d-vine">D-vine</h4>
+<p>A D-vine structure consists of only trees that are paths. This means that all nodes, with the exception of two, have a neighbor on each side of it. In a D-vine sequence, <span class="math inline">\(T_1\)</span> already determines all pairs in the subsequent trees. Therefore, to define a D-vine structure, only the path in <span class="math inline">\(T_1\)</span> needs to be specified, also referred to as the order of a D-vine.</p>
+</section>
+<section id="c-vine" class="level4">
+<h4 class="anchored" data-anchor-id="c-vine">C-vine</h4>
+<p>In a C-vine, every tree contains a single node, called the root, that is connected to all the other nodes. Therefore, the trees in a C-vine look like stars, until there are only 3 nodes left, in which case the remaining trees take the same structure as a D-vine.</p>
+<p>Both C- and D-vines can be fitted using a slightly adapted Dißmann algorithm. For D-vines, the path is chosen that maximizes the sum of absolute empirical Kendall’s <span class="math inline">\(\tau\)</span>, and for C-vines, the root node is identified that maximizes the sum of absolute empirical Kendall’s <span class="math inline">\(\tau\)</span>.</p>
+<p>Both a C-vine and a D-vine can also be fitted using the <code>fit_vinecop</code> function, by specifying the argument <em>vine</em> as either <em>‘D’</em> or <em>‘C’</em>.</p>
+</section>
+</section>
+</section>
+<section id="matrix-representation-of-a-vine-copula" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-representation-of-a-vine-copula">Matrix Representation of a Vine Copula</h2>
+<p>Morales Napoles (2011) developed a method to encode complex vine copula models into a triangular matrix representation. For example, the R-vine copula structure, that has just been fitted using the <code>fit_vinecop</code> function, can be represented as:</p>
+<p><span class="math display">\[
+M =
+\left( \begin{array}{cccccc}
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 &amp; 5 \\
+3 &amp; 2 &amp; 5 &amp; 4 &amp; 4 &amp;  \\
+2 &amp; 5 &amp; 4 &amp; 0 &amp;  &amp;  \\
+5 &amp; 4 &amp; 2 &amp;  &amp;  &amp;  \\
+4 &amp; 3 &amp;  &amp;  &amp;  &amp;  \\
+1 &amp;  &amp;  &amp;  &amp;  &amp;  \\
+\end{array} \right)
+\]</span></p>
+<p>where <span class="math inline">\(M\)</span> is a <span class="math inline">\(d\times d\)</span> sized matrix that can be read as follows:</p>
+<ul>
+<li>if <span class="math inline">\(i = 1\)</span>, the label of the <span class="math inline">\(j\)</span>-th edge in <span class="math inline">\(T_i\)</span> is given by <span class="math inline">\(\{m_{d-j+1, j}, m_{i,j}\}\)</span>. for example, as dimension <span class="math inline">\(d=6\)</span>, the first edge (<span class="math inline">\(j = 1\)</span>) of the first tree (<span class="math inline">\(i=1\)</span>) is <span class="math inline">\(\{m_{6-1+1, 1}, m_{1,1}\} = \{m_{6,1}, m_{1,1}\}  = \{1, 0\}\)</span></li>
+<li>if <span class="math inline">\(i &gt; 1\)</span>, the label of the <span class="math inline">\(j\)</span>-th edge in <span class="math inline">\(T_i\)</span> is given by <span class="math inline">\(\{m_{d-j+1,j}, m_{i,j}; m_{i-1,j}, ..., m_{1,j})\)</span>. for example,the first edge (<span class="math inline">\(j = 1\)</span>) of the second tree (<span class="math inline">\(i=2\)</span>) is <span class="math inline">\(\{m_{6-1+1, 1}, m_{2,1}; m_{2-1,1}\} =\{ m_{6,1}, m_{2,1}; m_{1,1}\} = \{1,3;0\}\)</span></li>
+</ul>
+<p>Dißmann et al.&nbsp;(2013) have further employed the matrix structure to also represent the types and parameters of the corresponding bivariate copulas, such that:</p>
+<p><span class="math display">\[\begin{equation*}
+M =
+\left( \begin{array}{cccccc}
+\bf{\color{fuchsia}{m*{1,1}}} &amp; \color{blueviolet}{m*{1,2}}&amp; m*{1,3} &amp; m*{1,4} &amp; m*{1,5} &amp; m*{1,6} \\
+m*{2,1} &amp; \color{blueviolet}{m*{2,2}} &amp; m*{2,3} &amp; m*{2,4} &amp; m*{2,5} &amp; \\
+m*{3,1} &amp; \bf{\color{blueviolet}{m*{3,2}}} &amp; m*{3,3} &amp; m*{3,4} &amp; &amp; \\
+m*{4,1} &amp; {m*{4,2}} &amp; m*{4,3} &amp; &amp; &amp; \\
+m*{5,1} &amp; \color{blueviolet}{m*{5,2}} &amp; &amp; &amp; &amp; \\
+\color{fuchsia}{m*{6,1}} &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+P =
+\left( \begin{array}{cccccc}
+\bf{\color{fuchsia}{p*{1,1}}}&amp; p*{1,2} &amp; p*{1,3} &amp; p*{1,4} &amp; p*{1,5} &amp; p*{1,6} \\
+p*{2,1} &amp; p*{2,2} &amp; p*{2,3} &amp; p*{2,4} &amp; p*{2,5} &amp; \\
+p*{3,1} &amp; \bf{\color{blueviolet}{p*{3,2}}} &amp; p*{3,3} &amp; p*{3,4} &amp; &amp; \\
+p*{4,1} &amp; p*{4,2} &amp; p*{4,3} &amp; &amp; &amp; \\
+p*{5,1} &amp; p*{5,2} &amp; &amp; &amp; &amp; \\
+p*{6,1} &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+<p><span class="math display">\[\begin{equation*}
+C =
+\left( \begin{array}{cccccc}
+\bf{\color{fuchsia}{c*{1,1}}}&amp; c*{1,2} &amp; c*{1,3} &amp; c*{1,4} &amp; c*{1,5} &amp; c*{1,6} \\
+c*{2,1} &amp; c*{2,2} &amp; c*{2,3} &amp; c*{2,4} &amp; c*{2,5} &amp; \\
+c*{3,1} &amp; \bf{\color{blueviolet}{c*{3,2}}} &amp; c*{3,3} &amp; c*{3,4} &amp; &amp; \\
+c*{4,1} &amp; c*{4,2} &amp; c*{4,3} &amp; &amp; &amp; \\
+c*{5,1} &amp; c*{5,2} &amp; &amp; &amp; &amp; \\
+c\_{6,1} &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+<p>The <code>fit_vinecop</code> function returns matrices <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span>, and <span class="math inline">\(C\)</span>. Where <span class="math inline">\(C\)</span> includes the copula type with the ID number indicated in Table 1. Hence, the R-vine structure fitted above has the following <span class="math inline">\(C\)</span> matrix:</p>
+<p><span class="math display">\[
+C =
+\left( \begin{array}{cccccc}
+4 &amp; 4 &amp; 4 &amp; 4 &amp; 4 &amp;  \\
+15 &amp; 3 &amp; 2 &amp; 15 &amp;  &amp;  \\
+15 &amp; 4 &amp; 10 &amp;  &amp;  &amp;  \\
+15 &amp; 10 &amp;  &amp;  &amp;  &amp;  \\
+1 &amp;  &amp;  &amp;  &amp;  &amp;  \\
+&amp;  &amp;  &amp;  &amp;  &amp;  \\
+\end{array} \right)
+\]</span></p>
+</section>
+<section id="generating-random-samples-from-a-vine-copula" class="level2">
+<h2 class="anchored" data-anchor-id="generating-random-samples-from-a-vine-copula">Generating Random Samples from a Vine Copula</h2>
+<p>Given the information provided in <span class="math inline">\(M\)</span>,<span class="math inline">\(P\)</span> and <span class="math inline">\(C\)</span>, random samples can be generated using Algorithm 2 below (Dißmann, 2013).</p>
+<hr>
+<p><strong>Algorithm 2</strong>: Generating random samples from a vine copula</p>
+<hr>
+<p><strong>Input</strong> Vine specification in matrix form: <span class="math inline">\(M, T, P\)</span> and the number of desired samples <span class="math inline">\(n\)</span>.</p>
+<p><strong>Output</strong> Random observations <span class="math inline">\(X = [\mathbf{x}_1, ..., \mathbf{x}_d]\)</span> from the R-vine specification.</p>
+<ol type="1">
+<li>Flip the columns in the matrices vertically, such that the matrix becomes a lower triangular matrix.</li>
+<li>Relabel the variables in <span class="math inline">\(M\)</span>, such that the variables on the diagonal are ordered from <span class="math inline">\(d\)</span> to <span class="math inline">\(1\)</span>, i.e., <span class="math inline">\(m_{k,k} = d - k + 1, k = 1, ..., d\)</span>.</li>
+<li>Generate independent uniform samples <span class="math inline">\(U = [ \mathbf{u}_1, ..., \mathbf{u}_d]\)</span> of length <span class="math inline">\(n\)</span>, i.e., <span class="math inline">\(\mathbf{u}_1 = [u_{11}, ..., u_{n1}]\)</span>.</li>
+<li>Define <span class="math inline">\(V^{\text{direct}} = (v^{\text{direct}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Define <span class="math inline">\(V^{\text{indirect}} = (v^{\text{indirect}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Set <span class="math inline">\([v^{\text{direct}}_{d,1}, v^{\text{direct}}_{d,2}, ..., v^{\text{direct}}_{d,d}] =[ \mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_d]\)</span>.</li>
+<li>Let <span class="math inline">\(\mathbb{M} = (\mathbf{m}{_{i,k}} | i, k = 1, ..., d)\)</span> with <span class="math inline">\(\mathbf{m}_{i,k} = \max\{{m}_{i,k}, ..., m_{d,k}\}\)</span> for all <span class="math inline">\(k = 1, ..., d - 1\)</span> and <span class="math inline">\(i = k, ..., d\)</span>.</li>
+<li><span class="math inline">\(\mathbf{x}_1 = v_{\text{direct}_{d,d}}\)</span>.</li>
+<li><strong>for</strong> <span class="math inline">\(k = d-1, ....,1\)</span> <strong>do</strong> {Iterate over the columns of <span class="math inline">\(M\)</span>}:
+<ol type="1">
+<li><p><strong>for</strong> <span class="math inline">\(i = k + 1, ....,d\)</span> <strong>do</strong> {Iterate over the rows of <span class="math inline">\(M\)</span>}:</p>
+<ol type="1">
+<li><strong>if</strong> <span class="math inline">\(\mathbf{m}_{i,k} = m_{i,k}\)</span>, <strong>then</strong>:
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(2)}_{i,k} = v^{\text{direct}}_{i,(d - \mathbf{m}_{i,k} + 1)}\)</span>.</li>
+</ol></li>
+<li><strong>else</strong>: 2. Set <span class="math inline">\(z^{(2)}_{i,k} = v^{\text{indirect}}_{i,(d - \mathbf{m}_{i,k} + 1)}\)</span>.</li>
+<li>Set <span class="math inline">\(v^{\text{direct}}_{d,k} = h^{-1}(v^{\text{direct}}_{d,k}, z^{(2)}_{i,k} | t_{i,k}, p_{i,k})\)</span>.</li>
+</ol></li>
+<li><p><strong>end for</strong></p></li>
+<li><p><span class="math inline">\(\mathbf{x}_{d-k+1} = v^{\text{direct}}_{d,k}\)</span>.</p></li>
+<li><p><strong>for</strong> <span class="math inline">\(i = d, ....,k+1\)</span> <strong>do</strong> {Iterate over the rows of <span class="math inline">\(M\)</span>}:</p>
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(1)}_{i,k} = v^{\text{direct}}_{i,k}\)</span>.</li>
+<li>Set <span class="math inline">\(v^{\text{direct}}_{i-1,k} = h(z^{(1)}_{i,k}, z^{(2)}_{i,k} | t_{i,k}, p_{i,k})\)</span> and <span class="math inline">\(v^{\text{indirect}}_{i-1,k} = h(z^{(2)}_{i,k}, z^{(1)}_{i,k} | t_{i,k}, p_{i,k})\)</span>.</li>
+</ol></li>
+<li><p><strong>end for</strong></p></li>
+</ol></li>
+<li><strong>end for</strong></li>
+<li>Sort the columns in <span class="math inline">\(X\)</span> according to the sampling order, such that <span class="math inline">\(X\)</span> is provided in the same order as the original data.</li>
+</ol>
+<hr>
+<p>Where <span class="math inline">\(h()\)</span> is the <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html#Conditional-Cumulative-Distribution-Function-(h-function)">conditional CDF</a> and <span class="math inline">\(h^{-1}()\)</span> is the <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html#Inverse-Conditional-Cumulative-Distribution-Function-(inverse-h-function)">inverse conditional CDF</a>.</p>
+<p>This Algorithm was designed based on a lower triangular matrix instead, therefore, <span class="math inline">\(M\)</span> is flipped vertically in step 1. For example, with the fitted R-vine above, converting to a lower triangular matrix is as follows: <span class="math display">\[\begin{equation*}
+M =
+\left( \begin{array}{cccccc}
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 &amp; 5 \\
+3 &amp; 2 &amp; 5 &amp; 4 &amp; 4 &amp; \\
+2 &amp; 5 &amp; 4 &amp; 0 &amp; &amp; \\
+5 &amp; 4 &amp; 2 &amp; &amp; &amp; \\
+4 &amp; 3 &amp; &amp; &amp; &amp; \\
+1 &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+\longrightarrow
+\left( \begin{array}{cccccc}
+1 &amp; &amp; &amp; &amp; &amp; \\
+4 &amp; 3 &amp; &amp; &amp; &amp; \\
+5 &amp; 4 &amp; 2 &amp; &amp; &amp; \\
+2 &amp; 5 &amp; 4 &amp; 0 &amp; &amp; \\
+3 &amp; 2 &amp; 5 &amp; 4 &amp; 4 &amp; \\
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 &amp; 5 \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+<p>Additionally, for convenience, the Algorithm works well when the sampling order, the diagonal values in the matrix, are ordered from <span class="math inline">\(n\)</span> to <span class="math inline">\(1\)</span>. Therefore, in step 2, all the variables are relabeled such that <span class="math inline">\(m_{k,k} = d - k + 1, k = 1, ..., d\)</span>. This relabeled matrix is the equivalent of the original matrix, which means it induces the same R-vine. Here is an example, of how matrix <span class="math inline">\(M\)</span> above, is relabeled:</p>
+<p><span class="math display">\[\begin{equation*}
+M =
+\left( \begin{array}{cccccc}
+1 &amp; &amp; &amp; &amp; &amp; \\
+4 &amp; 3 &amp; &amp; &amp; &amp; \\
+5 &amp; 4 &amp; 2 &amp; &amp; &amp; \\
+2 &amp; 5 &amp; 4 &amp; 0 &amp; &amp; \\
+3 &amp; 2 &amp; 5 &amp; 4 &amp; 4 &amp; \\
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 &amp; 5 \\
+\end{array} \right)
+\longrightarrow
+\left( \begin{array}{cccccc}
+6 &amp; &amp; &amp; &amp; &amp; \\
+2 &amp; 5 &amp; &amp; &amp; &amp; \\
+1 &amp; 2 &amp; 4 &amp; &amp; &amp; \\
+4 &amp; 1 &amp; 2 &amp; 3 &amp; &amp; \\
+5 &amp; 4 &amp; 1 &amp; 2 &amp; 2 &amp; \\
+3 &amp; 3 &amp; 3 &amp; 1 &amp; 1 &amp; 1 \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+<p>Another critical step, step.5, is defining the maximum matrix, <span class="math inline">\(\mathbb{M}\)</span>, where <span class="math inline">\(\mathbb{M} = (\mathbf{m}{_{i,k}} | i, k = 1, ..., d)\)</span> with <span class="math inline">\(\mathbf{m}_{i,k} = \max\{{m}_{i,k}, ..., m_{d,k}\}\)</span>, based on the reordered matrix. Meaning that <span class="math inline">\(\mathbf{m}_{i,k}\)</span> is the maximum of all entries in the <span class="math inline">\(k^{th}\)</span> column of <span class="math inline">\(M\)</span> from the bottom up to the <span class="math inline">\(i^{th}\)</span> variable, such that <span class="math inline">\(\mathbb{M}\)</span>, for sorted matrix <span class="math inline">\(M\)</span> above, is as follows :</p>
+<p><span class="math display">\[\begin{equation*}
+\mathbb{M} =
+\left( \begin{array}{cccccc}
+6 &amp; &amp; &amp; &amp; &amp; \\
+5 &amp; 5 &amp; &amp; &amp; &amp; \\
+5 &amp; 4 &amp; 4 &amp; &amp; &amp; \\
+5 &amp; 4 &amp; 3 &amp; 3 &amp; &amp; \\
+5 &amp; 4 &amp; 3 &amp; 2 &amp; 2 &amp; \\
+3 &amp; 3 &amp; 3 &amp; 1 &amp; 1 &amp; 1 \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+<p>Based on Algorithm 2, random samples can be generated using the <code>sample_vinecop</code> function, as showcased below.</p>
+<div id="2da31bbb" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(u)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ui <span class="op">=</span> sample_vinecop(M, P, C, n)  <span class="co"># sample vine copula</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="inverse-probability-integral-transform-of-random-samples" class="level3">
+<h3 class="anchored" data-anchor-id="inverse-probability-integral-transform-of-random-samples">Inverse Probability Integral Transform of Random Samples</h3>
+<p>As described in <a href="https://vinecopulas.readthedocs.io/en/latest/bivariatecopulas.html">Bivariate copulas</a>, in order to transform the simulated uniform data points to resemble the original data we can use the Inverse Probability Integral Transform, <span class="math inline">\(F_{X}^{-1}(U)\)</span>. This can be achieved by using the previously fitted distribution and the <code>pff</code> function (Percent point function) of <code>scipy.stats</code>.</p>
+<div id="3e917c19" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xi <span class="op">=</span> ui.copy()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>])):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    namedist <span class="op">=</span> <span class="st">"dist"</span> <span class="op">+</span> <span class="bu">str</span>(i)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    xi[:, i] <span class="op">=</span> <span class="bu">locals</span>()[namedist][<span class="dv">0</span>].ppf(ui[:, i], <span class="op">*</span><span class="bu">locals</span>()[namedist][<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now both the original data and the random samples can be plotted.</p>
+<div id="118e6d05" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">6</span>, <span class="dv">6</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))  <span class="co"># plot random data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ii <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>jj <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axs[i, j]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> j:  <span class="co"># Lower diagonal</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ii <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>, label<span class="op">=</span><span class="st">"original data"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                    xi[:, j], xi[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, label<span class="op">=</span><span class="st">"random samples"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                ii <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                ax.scatter(xi[:, j], xi[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">&lt;</span> j:  <span class="co"># Upper diagonal</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> jj <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                    u[:, j],</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>                    u[:, i],</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"#88c999"</span>,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed data"</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                    ui[:, j],</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                    ui[:, i],</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                    alpha<span class="op">=</span><span class="fl">0.4</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"hotpink"</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed random samples"</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                jj <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                ax.scatter(u[:, j], u[:, i], marker<span class="op">=</span><span class="st">"."</span>, color<span class="op">=</span><span class="st">"#88c999"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>                ax.scatter(ui[:, j], ui[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, color<span class="op">=</span><span class="st">"hotpink"</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Main diagonal</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>            ax.text(</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                df.columns[i],</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                horizontalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>                verticalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>            ax.set_xticks([])</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>            ax.set_yticks([])</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>fig.legend(</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"upper center"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.03</span>), ncol<span class="op">=</span><span class="dv">4</span>, markerscale<span class="op">=</span><span class="dv">4</span>, fontsize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="density-function-of-a-vine-copula" class="level2">
+<h2 class="anchored" data-anchor-id="density-function-of-a-vine-copula">Density Function of a Vine Copula</h2>
+<p>Similarly to a bivariate copula, the Density Function of a vine copula can be computed. In this package the density of a vine copula is computed using Algorithm 3 (Dißmann et al., 2013).</p>
+<hr>
+<p><strong>Algorithm 3</strong>: Density of a Vine Specification</p>
+<hr>
+<p><strong>Input</strong> vine specification in matrix form, i.e., <span class="math inline">\(M, T, P\)</span> and observations <em><span class="math inline">\(u\)</span></em></p>
+<p><strong>Output</strong> Density <span class="math inline">\(F\)</span> of the vine distribution for the given vine specification.</p>
+<ol type="1">
+<li>Flip the columns in the matrices vertically, such that the matrix becomes a lower triangular matrix.</li>
+<li>Set <span class="math inline">\(F = 1\)</span>.</li>
+<li>Define <span class="math inline">\(V^{\text{direct}} = (v^{\text{direct}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Define <span class="math inline">\(V^{\text{indirect}} = (v^{\text{indirect}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Set Set <span class="math inline">\([v^{\text{direct}}_{d,1}, v^{\text{direct}}_{d,2}, ..., v^{\text{direct}}_{d,d}] = [ \mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_d]\)</span>.</li>
+<li>Let <span class="math inline">\(\mathbb{M} = (\mathbf{m}{_{i,k}} | i, k = 1, ..., d)\)</span> with <span class="math inline">\(\mathbf{m}_{i,k} = \max\{{m}_{i,k}, ..., m_{d,k}\}\)</span> for all <span class="math inline">\(k = 1, ..., d - 1\)</span> and <span class="math inline">\(i = k, ..., d\)</span>.</li>
+<li><strong>for</strong> <span class="math inline">\(k = d-1, ....,1\)</span> <strong>do</strong> {Iterate over the columns of <span class="math inline">\(M\)</span>}:
+<ol type="1">
+<li><strong>for</strong> <span class="math inline">\(i = k + 1, ....,d\)</span> <strong>do</strong> {Iterate over the rows of <span class="math inline">\(M\)</span>}:
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(1)}_{i,k} = v_{\text{direct}}^{i,k}\)</span>.</li>
+<li>If <span class="math inline">\(m_{i,k} = m_{i,k}\)</span> then
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(2)}_{i,k} = v_{\text{direct}}^{i,(n-m_{i,k}+1)}\)</span>.</li>
+</ol></li>
+<li>Else
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(2)}_{i,k} = v_{\text{indirect}}^{i,(n-m_{i,k}+1)}\)</span>.</li>
+</ol></li>
+<li>End if</li>
+<li>Set <span class="math inline">\(F = F \cdot c(z^{(1)}_{i,k}, z^{(2)}_{i,k} \mid t_{i,k}, p_{i,k})\)</span>.</li>
+<li>Set <span class="math inline">\(v^{\text{direct}}_{i-1,k} = h(z^{(1)}_{i,k}, z^{(2)}_{i,k} | t_{i,k}, p_{i,k})\)</span> and <span class="math inline">\(v^{\text{indirect}}_{i-1,k} = h(z^{(2)}_{i,k}, z^{(1)}_{i,k} | t_{i,k}, p_{i,k})\)</span>.</li>
+</ol></li>
+<li><strong>end for</strong></li>
+</ol></li>
+<li><strong>end for</strong></li>
+</ol>
+<hr>
+<p>To compute the density we can use the <code>density_vinecop</code> function.</p>
+<div id="6433c170" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> density_vinecop(u, M, P, C)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="conditional-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-sampling">Conditional Sampling</h2>
+<section id="sampling-orders" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-orders">Sampling Orders</h3>
+<p>As seen in Algorithm 2, the random samples are generated in order of the variables on the diagonal of matrix <span class="math inline">\(M\)</span>. For the matrix which has been fitted in this example, the sampling order, <span class="math inline">\(\mathbf{s}\)</span>, is showcased in <span style="color:blue"> blue </span> as follows:</p>
+<p><span class="math display">\[\begin{equation*}
+S =
+\left( \begin{array}{cccccc}
+0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 &amp; \color{blue}{5} \\
+3 &amp; 2 &amp; 5 &amp; 4 &amp; \color{blue}{4} &amp; \\
+2 &amp; 5 &amp; 4 &amp; \color{blue}{0} &amp; &amp; \\
+5 &amp; 4 &amp; \color{blue}{2} &amp; &amp; &amp; \\
+4 &amp; \color{blue}{3} &amp; &amp; &amp; &amp; \\
+\color{blue}{1} &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+\mathbf{s} = [ \color{blue}{5}, \color{blue}{4}, \color{blue}{0}, \color{blue}{2}, \color{blue}{3}, \color{blue}{1} \color{black}{]}
+\end{equation*}\]</span></p>
+<p>A sampling order can be determined by choosing any of the variables as the first variable, <span class="math inline">\(s_1\)</span>, in the sampling order and picking an edge in <span class="math inline">\(T_1\)</span> that includes <span class="math inline">\(s_1\)</span>, the second variable in the sampling order, <span class="math inline">\(s_2\)</span>, is the other variable in the selected edge. Next, an edge is chosen in <span class="math inline">\(T_2\)</span>, which includes both <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span>, where <span class="math inline">\(s_3\)</span> is the remaining variable in this chosen edge. This process can be continued until <span class="math inline">\(T_{d-1}\)</span> is reached and all variables have been included in <span class="math inline">\(\mathbf{s}\)</span>. For each vine copula with <span class="math inline">\(d\)</span> variables, there are <span class="math inline">\(2^{d-1}\)</span> implied sampling orders (Cooke et al., 2015).</p>
+<p>All unique sampling orders, <span class="math inline">\(S\)</span> that a vine copula structure has can be identified with the use of the <code>samplingorder</code> function as follows:</p>
+<div id="81fbb12a" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Sor <span class="op">=</span> samplingorder(M)  <span class="co"># provide all the different sampling orders that are possible</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %% print all samping orders</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> Sor:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[5.0, 4.0, 0.0, 2.0, 3.0, 1.0]
+[5.0, 0.0, 2.0, 3.0, 1.0, 4.0]
+[5.0, 0.0, 2.0, 3.0, 4.0, 1.0]
+[3.0, 0.0, 2.0, 1.0, 5.0, 4.0]
+[5.0, 0.0, 2.0, 4.0, 3.0, 1.0]
+[3.0, 0.0, 2.0, 5.0, 1.0, 4.0]
+[3.0, 0.0, 2.0, 5.0, 4.0, 1.0]
+[3.0, 0.0, 1.0, 2.0, 5.0, 4.0]
+[5.0, 0.0, 4.0, 2.0, 3.0, 1.0]
+[2.0, 0.0, 5.0, 3.0, 1.0, 4.0]
+[2.0, 0.0, 5.0, 3.0, 4.0, 1.0]
+[2.0, 0.0, 3.0, 1.0, 5.0, 4.0]
+[2.0, 0.0, 5.0, 4.0, 3.0, 1.0]
+[2.0, 0.0, 3.0, 5.0, 1.0, 4.0]
+[2.0, 0.0, 3.0, 5.0, 4.0, 1.0]
+[1.0, 0.0, 3.0, 2.0, 5.0, 4.0]
+[4.0, 5.0, 0.0, 2.0, 3.0, 1.0]
+[0.0, 5.0, 2.0, 3.0, 1.0, 4.0]
+[0.0, 5.0, 2.0, 3.0, 4.0, 1.0]
+[0.0, 3.0, 2.0, 1.0, 5.0, 4.0]
+[0.0, 5.0, 2.0, 4.0, 3.0, 1.0]
+[0.0, 3.0, 2.0, 5.0, 1.0, 4.0]
+[0.0, 3.0, 2.0, 5.0, 4.0, 1.0]
+[0.0, 3.0, 1.0, 2.0, 5.0, 4.0]
+[0.0, 5.0, 4.0, 2.0, 3.0, 1.0]
+[0.0, 2.0, 5.0, 3.0, 1.0, 4.0]
+[0.0, 2.0, 5.0, 3.0, 4.0, 1.0]
+[0.0, 2.0, 3.0, 1.0, 5.0, 4.0]
+[0.0, 2.0, 5.0, 4.0, 3.0, 1.0]
+[0.0, 2.0, 3.0, 5.0, 1.0, 4.0]
+[0.0, 2.0, 3.0, 5.0, 4.0, 1.0]
+[0.0, 1.0, 3.0, 2.0, 5.0, 4.0]</code></pre>
+</div>
+</div>
+<p>If the sampling order in <span class="math inline">\(M\)</span> that is originally provided by the <em>fit_vinecop</em> function is not the desired sampling order, the matrix can be adjusted with any of the possible sampling orders above. For example, if the sampling order <span class="math inline">\([5, 0, 2, 3, 1, 4]\)</span> is desired instead, the matrix <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span> and <span class="math inline">\(C\)</span> can be adjusted using the <code>samplingmatrix</code> function:</p>
+<div id="c72b880a" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>so <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>MSi, PSi, CSi <span class="op">=</span> samplingmatrix(M, C, P, so)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Such that the matrix for this sampling order is:</p>
+<p><span class="math display">\[\begin{equation*}
+M\_{Si} =
+\left( \begin{array}{cccccc}
+5 &amp; 0 &amp; 0 &amp; 0 &amp; 5 &amp; 5 \\
+0 &amp; 3 &amp; 2 &amp; 5 &amp; 0 &amp; \\
+2 &amp; 2 &amp; 5 &amp; 2 &amp; &amp; \\
+3 &amp; 5 &amp; 3 &amp; &amp; &amp; \\
+1 &amp; 1 &amp; &amp; &amp; &amp; \\
+4 &amp; &amp; &amp; &amp; &amp; \\
+\end{array} \right)
+\end{equation*}\]</span></p>
+</section>
+<section id="generating-conditionals-samples" class="level3">
+<h3 class="anchored" data-anchor-id="generating-conditionals-samples">Generating Conditionals Samples</h3>
+<p>The sampling order of a vine copula is important when wanting to conditionalize on a single or set of variables. In order to generate conditionalized samples, the conditioned variable is required to be at the end of the sampling order. For example, in the originally fitted matrix <span class="math inline">\(M\)</span> the sampling order end with variable <span class="math inline">\(0\)</span>, which refers to the <em>Shuck</em> variable, meaning that this matrix allows to generate random samples of <em>Shuck</em> based on all the other variables.</p>
+<hr>
+<p><strong>Algorithm 4</strong>: Generating conditional random samples from a vine copula</p>
+<hr>
+<p><strong>Input</strong> R-vine specification in matrix form: <span class="math inline">\(M, T, P\)</span>, the number of desired samples <span class="math inline">\(n\)</span> and the conditioning samples <span class="math inline">\(u_c\)</span>.</p>
+<p><strong>Output</strong> Random observations <span class="math inline">\(X = [\mathbf{x}_1, ..., \mathbf{x}_d]\)</span> from the R-vine specification.</p>
+<ol type="1">
+<li>Flip the columns in the matrices vertically, such that the matrix becomes a lower triangular matrix</li>
+<li>Relabel the variables in <span class="math inline">\(M\)</span>, such that the variables on the diagonal are ordered from <span class="math inline">\(d\)</span> to <span class="math inline">\(1\)</span>, i.e., <span class="math inline">\(m_{k,k} = d - k + 1, k = 1, ..., d\)</span>.</li>
+<li>Let <span class="math inline">\(l\)</span> be the number of conditioning variables, and generate independent uniform samples <span class="math inline">\(U_s = [ \mathbf{u}_1, ..., \mathbf{u}_{d-l}]\)</span> of length <span class="math inline">\(n\)</span>, i.e., <span class="math inline">\(\mathbf{u}_1 = [u_{11}, ..., u_{n1}]\)</span></li>
+<li>Let <span class="math inline">\(U_c\)</span> have the same dimension <span class="math inline">\(n\)</span> (number of rows) as <span class="math inline">\(U_s\)</span>, where each row in <span class="math inline">\(U_c\)</span> contains identical samples <span class="math inline">\(u_c\)</span></li>
+<li>Let <span class="math inline">\([\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_d] = [U_s, U_c]\)</span></li>
+<li>Let <span class="math inline">\(X =  [\mathbf{u}_d, ..., \mathbf{u}_2,\mathbf{u}_1]\)</span></li>
+<li>Define <span class="math inline">\(V^{\text{direct}} = (v^{\text{direct}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Define <span class="math inline">\(V^{\text{indirect}} = (v^{\text{indirect}}_{i,k} | i, k = 1, ..., d)\)</span>.</li>
+<li>Set <span class="math inline">\([v^{\text{direct}}_{d,1}, v^{\text{direct}}_{d,2}, ..., v^{\text{direct}}_{d,d}] =[ \mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_d]\)</span>.</li>
+<li>Let <span class="math inline">\(\mathbb{M} = (\mathbf{m}{_{i,k}} | i, k = 1, ..., d)\)</span> with <span class="math inline">\(\mathbf{m}_{i,k} = \max\{{m}_{i,k}, ..., m_{d,k}\}\)</span> for all <span class="math inline">\(k = 1, ..., d - 1\)</span> and <span class="math inline">\(i = k, ..., d\)</span>.</li>
+<li><span class="math inline">\(\mathbf{x}_1 = v_{\text{direct}_{d,d}}\)</span>.</li>
+<li><strong>for</strong> <span class="math inline">\(k = d-1, ....,1\)</span> <strong>do</strong> {Iterate over the columns of <span class="math inline">\(M\)</span>}:
+<ol type="1">
+<li><p><strong>for</strong> <span class="math inline">\(i = k + 1, ....,d\)</span> <strong>do</strong> {Iterate over the rows of <span class="math inline">\(M\)</span>}:</p>
+<ol type="1">
+<li><strong>if</strong> <span class="math inline">\(\mathbf{m}_{i,k} = m_{i,k}\)</span>, <strong>then</strong>:
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(2)}_{i,k} = v^{\text{direct}}_{i,(d - \mathbf{m}_{i,k} + 1)}\)</span>.</li>
+</ol></li>
+<li><strong>else</strong>: 2. Set <span class="math inline">\(z^{(2)}_{i,k} = v^{\text{indirect}}_{i,(d - \mathbf{m}_{i,k} + 1)}\)</span>.</li>
+<li>Set <span class="math inline">\(v^{\text{direct}}_{d,k} = h^{-1}(v^{\text{direct}}_{d,k}, z^{(2)}_{i,k} | t_{i,k}, p_{i,k})\)</span>.</li>
+</ol></li>
+<li><p><strong>end for</strong></p></li>
+<li><p><span class="math inline">\(\mathbf{x}_{d-k+1} = v^{\text{direct}}_{d,k}\)</span>.</p></li>
+<li><p><strong>for</strong> <span class="math inline">\(i = d, ....,k+1\)</span> <strong>do</strong> {Iterate over the rows of <span class="math inline">\(M\)</span>}:</p>
+<ol type="1">
+<li>Set <span class="math inline">\(z^{(1)}_{i,k} = v^{\text{direct}}_{i,k}\)</span>.</li>
+<li>Set <span class="math inline">\(v^{\text{direct}}_{i-1,k} = h(z^{(1)}_{i,k}, z^{(2)}_{i,k} | t_{i,k}, p_{i,k})\)</span> and <span class="math inline">\(v^{\text{indirect}}_{i-1,k} = h(z^{(2)}_{i,k}, z^{(1)}_{i,k} | t_{i,k}, p_{i,k})\)</span>.</li>
+</ol></li>
+<li><p><strong>end for</strong></p></li>
+</ol></li>
+<li><strong>end for</strong></li>
+<li>Sort the columns in <span class="math inline">\(X\)</span> according to the sampling order, such that <span class="math inline">\(X\)</span> is provided in same order as the original data.</li>
+</ol>
+<hr>
+<p>The conditioning samples <span class="math inline">\(u_c\)</span> are required to be provided in order of the sampling order in <span class="math inline">\(M\)</span>. As the sampling order in this example is <span class="math inline">\([5, 4, 0, 2, 3, 1]\)</span>, and conditional samples will be generated for the last variable in the sampling order, <em>Shuck</em>, <span class="math inline">\(u_c\)</span> wil consist of <span class="math inline">\([u_{c5}, u_{c4},u_{c0},u_{c2}]\)</span>. In this example, lets set <span class="math inline">\(u_c= [u_{c5}, u_{c4},u_{c0},u_{c2}] = [0.67,0.64,0.56,0.64, 0.50]\)</span>, then step 5 in algorithm 4, is as follows:</p>
+<p><span class="math display">\[
+U = [\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_d] = [U_s, U_c] =
+\left( \begin{array}{cccccc}
+   0.67 &amp; 0.64 &amp; 0.56 &amp; 0.64 &amp; 0.50 &amp; u_{1,d} \\
+    0.67 &amp; 0.64 &amp; 0.56 &amp; 0.64 &amp; 0.50 &amp; u_{2,d} \\
+   \vdots  &amp; \vdots  &amp; \vdots &amp; \vdots  &amp; \vdots &amp; \vdots  \\
+   0.67 &amp; 0.64 &amp; 0.56 &amp; 0.64 &amp; 0.50 &amp; u_{n,d}
+\end{array} \right)
+\]</span></p>
+<p>step 14 sorts columns in <span class="math inline">\(X\)</span> according to the sampling order, such that <span class="math inline">\(X\)</span> is provided in same order as the original data, where the first column contains samples of the first variable and the last column contains variable <span class="math inline">\(d\)</span>, such that <span class="math inline">\(X\)</span> in this example will be returned as:</p>
+<p><span class="math display">\[
+X =
+\left( \begin{array}{cccccc}
+   0.56   &amp;    x_{1,2} &amp; 0.64    &amp;   0.50    &amp;    0.64  &amp;     0.67  \\
+   0.56   &amp;    x_{2,2} &amp; 0.64    &amp;   0.50    &amp;    0.64  &amp;     0.67 \\
+   \vdots  &amp; \vdots  &amp; \vdots &amp; \vdots  &amp; \vdots &amp; \vdots  \\
+  0.56   &amp;    x_{n,2} &amp; 0.64    &amp;   0.50    &amp;    0.64  &amp;     0.67
+\end{array} \right)
+\]</span></p>
+<p>Conditional samples can be generated using the <code>sample_vinecopconditional</code> function. This is showcased below using the example described above.</p>
+<div id="6b5c9392" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Uc <span class="op">=</span> np.array(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">0.67</span>, <span class="fl">0.64</span>, <span class="fl">0.56</span>, <span class="fl">0.64</span>, <span class="fl">0.50</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># samples, ordered according to sampling order, more details to follow in explanation</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">150</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>uci <span class="op">=</span> sample_vinecopconditional(M, P, C, n, Uc)  <span class="co"># generate conditional samples</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>xci <span class="op">=</span> uci.copy()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>])):</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    namedist <span class="op">=</span> <span class="st">"dist"</span> <span class="op">+</span> <span class="bu">str</span>(i)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    xci[:, i] <span class="op">=</span> <span class="bu">locals</span>()[namedist][<span class="dv">0</span>].ppf(uci[:, i], <span class="op">*</span><span class="bu">locals</span>()[namedist][<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="520153f4" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">6</span>, <span class="dv">6</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ii <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>jj <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axs[i, j]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> j:  <span class="co"># Lower diagonal</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ii <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>, label<span class="op">=</span><span class="st">"original data"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                    xci[:, j],</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                    xci[:, i],</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>                    alpha<span class="op">=</span><span class="fl">0.4</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"conditional  samples"</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                ii <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>                ax.scatter(xci[:, j], xci[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">&lt;</span> j:  <span class="co"># Upper diagonal</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> jj <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>                    u[:, j],</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>                    u[:, i],</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"#88c999"</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed data"</span>,</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>                    uci[:, j],</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>                    uci[:, i],</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                    alpha<span class="op">=</span><span class="fl">0.4</span>,</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"hotpink"</span>,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed conditional samples"</span>,</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>                jj <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>                ax.scatter(u[:, j], u[:, i], marker<span class="op">=</span><span class="st">"."</span>, color<span class="op">=</span><span class="st">"#88c999"</span>)</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>                ax.scatter(uci[:, j], uci[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, color<span class="op">=</span><span class="st">"hotpink"</span>)</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Main diagonal</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>            ax.text(</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>                df.columns[i],</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>                horizontalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>                verticalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>            ax.set_xticks([])</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>            ax.set_yticks([])</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>fig.legend(</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"upper center"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.03</span>), ncol<span class="op">=</span><span class="dv">4</span>, markerscale<span class="op">=</span><span class="dv">4</span>, fontsize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-a-copula-to-a-desired-sampling-order" class="level3">
+<h3 class="anchored" data-anchor-id="fitting-a-copula-to-a-desired-sampling-order">Fitting a Copula to a Desired Sampling Order</h3>
+<p>As seen in the previous section, we can draw conditional samples of the variables at the end of the sampling order <span class="math inline">\(s\)</span>. However, suppose we want to draw conditional samples of variables <span class="math inline">\(2\)</span> and <span class="math inline">\(5\)</span>. the fitted copula above does not include a sampling order in <span class="math inline">\(S\)</span> where <span class="math inline">\([2,5]\)</span> are at the end of <span class="math inline">\(s\)</span>. Therefore, the vine copula needs to be refit in a manner that such a sampling order does exist. To do so, the Dißmann Algorithm (Dißmann et al.&nbsp;2013) has been altered as follows in Algorithm 5.</p>
+<hr>
+<p><strong>Algorithm 5</strong> Selecting an R-vine model based on Kendall’s <span class="math inline">\(\tau\)</span> that allows for conditionalizing on a set of variables.</p>
+<hr>
+<p><strong>Input:</strong> <span class="math inline">\(Y_{conditioned}\)</span>, <span class="math inline">\(Y_{conditioning}\)</span>, and data <span class="math inline">\(U = [\mathbf{u}_{1}, \ldots, \mathbf{u}_{d}]\)</span>, of length 𝑛 , i.e., <span class="math inline">\(\mathbf{u}=[𝑢_{11},...,𝑢_{𝑛1}]\)</span></p>
+<p><strong>Output:</strong> R-vine copula specification in the form of triangular matrices, <span class="math inline">\(M\)</span>, <span class="math inline">\(P\)</span> and <span class="math inline">\(C\)</span>.</p>
+<ol type="1">
+<li>Calculate the empirical Kendall’s tau <span class="math inline">\(\hat{\tau}_{j,k}\)</span> for all possible variable pairs <span class="math inline">\(\{j, k\}\)</span>, <span class="math inline">\(1 \leq j &lt; k \leq d\)</span>.</li>
+<li>select <span class="math inline">\(l - 1\)</span> pairs of <span class="math inline">\(\{j, k\}\)</span> with the highest <span class="math inline">\(\hat{\tau}_{j,k}\)</span>, where <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span> are both in <span class="math inline">\(Y_{conditioning}\)</span>, and <span class="math inline">\(l = length(Y_{conditioning})\)</span>, add these pairs to <span class="math inline">\(T_1\)</span>.</li>
+<li>Set <span class="math inline">\(Y^{2}_{conditioning} = Y_{conditioning}\)</span> and <span class="math inline">\(Y^{2}_{conditioned} = Y_{conditioned}\)</span>.</li>
+<li><strong>While</strong> <span class="math inline">\(length(T_1)\)</span> &lt; <span class="math inline">\(length(\mathbf{u})\)</span> <strong>do</strong> {add edges untill maximum number of edges in tree is reached} :
+<ol type="1">
+<li>select a pair <span class="math inline">\(\{j, k\}\)</span> with the highest <span class="math inline">\(\hat{\tau}_{j,k}\)</span> that is not in <span class="math inline">\(T_1\)</span>, where <span class="math inline">\(j\)</span> or <span class="math inline">\(k\)</span> is in <span class="math inline">\(Y^{2}_{conditioned}\)</span> and <span class="math inline">\(j\)</span> or <span class="math inline">\(k\)</span> is in <span class="math inline">\(Y^{2}_{conditioning}\)</span></li>
+<li><strong>if</strong> <span class="math inline">\(j\)</span> is in <span class="math inline">\(Y^{2}_{conditioned}\)</span> <strong>then</strong>:
+<ol type="1">
+<li>remove <span class="math inline">\(j\)</span> from <span class="math inline">\(Y^{2}_{conditioned}\)</span></li>
+<li>add <span class="math inline">\(j\)</span> to <span class="math inline">\(Y^{2}_{conditioning}\)</span></li>
+</ol></li>
+<li><strong>else</strong>:
+<ol type="1">
+<li>remove <span class="math inline">\(k\)</span> from <span class="math inline">\(Y^{2}_{conditioned}\)</span></li>
+<li>add <span class="math inline">\(k\)</span> to <span class="math inline">\(Y^{2}_{conditioning}\)</span></li>
+</ol></li>
+<li>add selected pair <span class="math inline">\(\{j, k\}\)</span> to <span class="math inline">\(T_1\)</span></li>
+</ol></li>
+<li>For each edge <span class="math inline">\(\{j, k\}\)</span> in <span class="math inline">\(T_1\)</span>, select a copula and estimate the corresponding parameter(s). Then transform <span class="math inline">\(C_{j|k}( \mathbf{u}_{j}|\mathbf{u}_{k})\)</span> and <span class="math inline">\(C_{k|j}( \mathbf{u}_{k}|\mathbf{u}_{j})\)</span> using the fitted copula <span class="math inline">\({C}_{jk}\)</span>.</li>
+<li><strong>for</strong> <span class="math inline">\(i = 2, \ldots, d - 1\)</span> <strong>do</strong> {Iteration over the trees}:
+<ol type="1">
+<li>Set <span class="math inline">\(Y^{i}_{conditioning}\)</span> to the edge(s) in <span class="math inline">\(T_{i-1}\)</span> that include all, or most of the variables in <span class="math inline">\(Y_{conditioning}\)</span>.</li>
+<li>Set <span class="math inline">\(Y^{i}_{conditioned}\)</span> to the edge in <span class="math inline">\(T_{i-1}\)</span> that are not in <span class="math inline">\(Y^{i}_{conditioning}\)</span>.</li>
+<li>Calculate the empirical Kendall’s tau <span class="math inline">\(\hat{\tau}_{j,k|D}\)</span> for all conditional variable pairs <span class="math inline">\(\{j, k|D\}\)</span> that can be part of tree <span class="math inline">\(T_i\)</span>, i.e., two nodes that share a node in <span class="math inline">\(T_{i-1}\)</span>.</li>
+<li><strong>if</strong> <span class="math inline">\(length(Y^{i}_{conditioning}) &gt; 1\)</span> <strong>then</strong>:
+<ol type="1">
+<li>select <span class="math inline">\(l - 1\)</span> pairs of <span class="math inline">\(\{j, k|D\}\)</span> with the highest <span class="math inline">\(\hat{\tau}_{j,k|D}\)</span>, where both edges in the pair are in <span class="math inline">\(Y^{i}_{conditioning}\)</span>, and <span class="math inline">\(l = length(Y^{i}_{conditioning})\)</span>, and add these pairs to <span class="math inline">\(T_i\)</span></li>
+</ol></li>
+<li><strong>While</strong> <span class="math inline">\(length(T_i)\)</span> &lt; <span class="math inline">\((length(\mathbf{u}) - i)\)</span> <strong>do</strong> {add edges untill maximum number of edges in tree is reached}:
+<ol type="1">
+<li>select a pair <span class="math inline">\(\{j, k|D\}\)</span> with the highest <span class="math inline">\(\hat{\tau}_{j,k}\)</span> that is not in <span class="math inline">\(T_i\)</span>, where one egde is in <span class="math inline">\(Y^{i}_{conditioned}\)</span> and the other is in <span class="math inline">\(Y^{i}_{conditioning}\)</span></li>
+<li>remove the edge that was in <span class="math inline">\(Y^{i}_{conditioned}\)</span> from <span class="math inline">\(Y^{i}_{conditioned}\)</span> and add this edge to <span class="math inline">\(Y^{i}_{conditioning}\)</span></li>
+<li>add selected pair <span class="math inline">\(\{j, k|D\}\)</span> to <span class="math inline">\(T_i\)</span></li>
+</ol></li>
+<li>For each edge <span class="math inline">\(\{j, k|D\}\)</span> in <span class="math inline">\(T_i\)</span>, select a conditional copula and estimate the corresponding parameter(s). Then transform <span class="math inline">\(C_{j|k \cup D}(\mathbf{u}_{j}|\mathbf{u}_{k}, \mathbf{u}_{D})\)</span> and <span class="math inline">\(C_{k|j \cup D}(\mathbf{u}_{k}|\mathbf{u}_{j}, \mathbf{u}_{D})\)</span>, using the fitted copula <span class="math inline">\(C_{j,k|D}\)</span>.</li>
+</ol></li>
+<li><strong>end for</strong></li>
+</ol>
+<hr>
+<p>If <span class="math inline">\([2,5]\)</span> need to be at the end of the sampling order <span class="math inline">\(Y_{conditioned} = [2,5]\)</span>, and <span class="math inline">\(Y_{conditioning}\)</span> will consist of the remaining variables <span class="math inline">\([0,1,3,4]\)</span>. In Algorithm 5, the edges in <span class="math inline">\(T_1\)</span> that consist of nodes in <span class="math inline">\(Y_{conditioning}\)</span> are prioritized first, before adding edges that include nodes in <span class="math inline">\(Y_{conditioned}\)</span>.</p>
+<p>the <code>fit_conditionalvine</code> function can be used to fit a copula based on specific conditioning or conditionalized variables as follows.</p>
+<div id="e19a2551" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit copula based on a variable of interest</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vint <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">5</span>]  <span class="co"># variable of interest</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>Mc, Pc, Cc <span class="op">=</span> fit_conditionalvine(u, vint, cops, vine<span class="op">=</span><span class="st">"R"</span>, condition<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plotvine(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    Mc, variables<span class="op">=</span><span class="bu">list</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>]), plottitle<span class="op">=</span><span class="st">"Conditional R-Vine"</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># plot structure</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>** Tree:  1
+1,0  ---&gt;  Gumbel180 : parameters =  5.646871761936536
+2,4  ---&gt;  Gumbel180 : parameters =  3.5974443116928847
+3,0  ---&gt;  Gumbel180 : parameters =  4.89136322482854
+0,4  ---&gt;  Gumbel180 : parameters =  5.2819902590842664
+4,5  ---&gt;  Gumbel180 : parameters =  6.401980791090651
+** Tree:  2
+1,3|0  ---&gt;  Student : parameters =  [-0.6498732276928038, 5.596346619337978]
+2,0|4  ---&gt;  Joe180 : parameters =  1.0337035360305304
+3,4|0  ---&gt;  Student : parameters =  [0.6524427194203243, 6.847230487701548]
+0,5|4  ---&gt;  Frank : parameters =  1.4569935152056166
+** Tree:  3
+1,4|3,0  ---&gt;  Student : parameters =  [0.16707225497294598, 5.820914993699525]
+2,5|0,4  ---&gt;  Joe180 : parameters =  1.0278626665655128
+3,5|4,0  ---&gt;  Gumbel90 : parameters =  1.1538109486876806
+** Tree:  4
+1,5|4,3,0  ---&gt;  Clayton270 : parameters =  0.11507031349153632
+2,3|5,0,4  ---&gt;  Clayton90 : parameters =  -0.027458169469604398
+** Tree:  5
+1,2|5,4,3,0  ---&gt;  Frank : parameters =  1.4319237730248844</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-15-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Algorithm 5 can, like Algorithm 1, be adjusted to fit a D- or C-vine by setting the <em>vine</em> argument to ‘D’ or ‘C’. The <em>condition</em> can be set to <span class="math inline">\(2\)</span>, in that case <em>vint</em> is <span class="math inline">\(Y_{conditioning}\)</span> instead of <span class="math inline">\(Y_{conditioned}\)</span>.</p>
+<p>Using the <code>sample_vinecopconditional</code> function, conditional samples can be generated based on the fitted copula above, <span class="math inline">\(M_c\)</span>. The samples can be conditionalized on any initial segment of the sampling order. To showcase this in the following example we will only sample according to the first variable in the sampling order. In <span class="math inline">\(M_c\)</span> this is variable <span class="math inline">\(4\)</span>, <em>diameter</em>.</p>
+<div id="58a2c240" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Uc <span class="op">=</span> np.array([<span class="fl">0.9</span>])  <span class="co"># ordered according to sampling order</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">150</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>uci <span class="op">=</span> sample_vinecopconditional(Mc, Pc, Cc, n, Uc)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>xci <span class="op">=</span> uci.copy()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df.columns[:<span class="op">-</span><span class="dv">1</span>])):</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    namedist <span class="op">=</span> <span class="st">"dist"</span> <span class="op">+</span> <span class="bu">str</span>(i)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    xci[:, i] <span class="op">=</span> <span class="bu">locals</span>()[namedist][<span class="dv">0</span>].ppf(uci[:, i], <span class="op">*</span><span class="bu">locals</span>()[namedist][<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="8837f2c2" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">6</span>, <span class="dv">6</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">15</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ii <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>jj <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axs[i, j]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> j:  <span class="co"># Lower diagonal</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ii <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>, label<span class="op">=</span><span class="st">"original data"</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>                    xci[:, j],</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>                    xci[:, i],</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                    alpha<span class="op">=</span><span class="fl">0.4</span>,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"conditional  samples"</span>,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>                ii <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>                ax.scatter(x[:, j], x[:, i], marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>                ax.scatter(xci[:, j], xci[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> i <span class="op">&lt;</span> j:  <span class="co"># Upper diagonal</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> jj <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>                    u[:, j],</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>                    u[:, i],</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"#88c999"</span>,</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed data"</span>,</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>                ax.scatter(</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>                    uci[:, j],</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>                    uci[:, i],</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>                    marker<span class="op">=</span><span class="st">"."</span>,</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>                    alpha<span class="op">=</span><span class="fl">0.4</span>,</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"hotpink"</span>,</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="st">"transformed conditional samples"</span>,</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>                jj <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>                ax.scatter(u[:, j], u[:, i], marker<span class="op">=</span><span class="st">"."</span>, color<span class="op">=</span><span class="st">"#88c999"</span>)</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>                ax.scatter(uci[:, j], uci[:, i], marker<span class="op">=</span><span class="st">"."</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, color<span class="op">=</span><span class="st">"hotpink"</span>)</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Main diagonal</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>            ax.text(</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.5</span>,</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>                df.columns[i],</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>                horizontalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>                verticalalignment<span class="op">=</span><span class="st">"center"</span>,</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>            ax.set_xticks([])</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>            ax.set_yticks([])</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>fig.legend(</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"upper center"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.03</span>), ncol<span class="op">=</span><span class="dv">4</span>, markerscale<span class="op">=</span><span class="dv">4</span>, fontsize<span class="op">=</span><span class="dv">15</span></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="vinecopulas_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Aas, K., Czado, C., Frigessi, A., &amp; Bakken, H. (2009). Pair-copula constructions of multiple dependence. Insurance: Mathematics and Economics, 44(2), 182–198. https://doi.org/10.1016/j.insmatheco.2007.02.001</p>
+<p>Cooke, R. M., Kurowicka, D., &amp; Wilson, K. (2015). Sampling, conditionalizing, counting, merging, searching regular vines. Journal of Multivariate Analysis, 138, 4–18. https://doi.org/10.1016/j.jmva.2015.02.001</p>
+<p>Czado, C., &amp; Nagler, T. (2021). Vine Copula Based Modeling. Annual Review of Statistics and Its Application, 9, 453–477. https://doi.org/10.1146/annurev-statistics-040220-101153</p>
+<p>Dißmann, J., Brechmann, E. C., Czado, C., &amp; Kurowicka, D. (2013). Selecting and estimating regular vine copulae and application to financial returns. Computational Statistics and Data Analysis, 59(1), 52–69. https://doi.org/10.1016/j.csda.2012.08.010</p>
+<p>Morales Napoles, O. (2011). Counting Vines. In D. Kurowicka &amp; H. Joe (Eds.), Dependence Modeling. Vine Copula Handbook (pp.&nbsp;189–218).</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://medewsa.eu"><img src="../..\images/logos/Logo_MedEWSa_PNG_TRASPARENT.png" style="margin-right:1.2rem;" height="48" alt="MedEWSa"></a> <a href="https://ec.europa.eu"><img src="../..\images/logos/funded_EN/horizontal/RGB/PNG/EN_FundedbytheEU_RGB_POS.png" height="48" alt="EU Funded"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" class="img-fluid"></a></p>
+</div>
+    <div class="nav-footer-right">
+<p>This repository is funded by the European Union. Its contents are the sole responsibility of the author(s) and do not necessarily reflect the views of the European Union.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

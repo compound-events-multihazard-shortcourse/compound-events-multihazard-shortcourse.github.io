@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bivariate Copulas – EGU26 - Short Course: Compound Events and Multi-Hazard Analytics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4aeca09c0316f92539671ce5180f6e6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EGU26 - Short Course: Compound Events and Multi-Hazard Analytics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introductions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introductions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introductions">    
+        <li>
+    <a class="dropdown-item" href="../../materials/01-intro-compound-events/index.html">
+ <span class="dropdown-text">Overview of Compound Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/02-intro-multi-risk/index.html">
+ <span class="dropdown-text">From Single-Hazard to Multi-Risk</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-applications" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Applications</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-applications">    
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/index.html">
+ <span class="dropdown-text">Vine Copulas: Overview &amp; Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/bivariatecopulas.html">
+ <span class="dropdown-text">Notebook 1: Bivariate Copulas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/03-vine-copulas/vinecopulas.html">
+ <span class="dropdown-text">Notebook 2: Vine Copulas</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../materials/04-llm-impact-extraction/index.qmd">
+ <span class="dropdown-text">LLM Impact Extraction: Overview &amp; Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../materials/04-llm-impact-extraction/notebook.ipynb">
+ <span class="dropdown-text">Notebook: Impact Extraction</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#general-introduction-to-copulas" id="toc-general-introduction-to-copulas" class="nav-link active" data-scroll-target="#general-introduction-to-copulas">General Introduction to Copulas</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#probability-integral-transform-with-empirical-cdf" id="toc-probability-integral-transform-with-empirical-cdf" class="nav-link" data-scroll-target="#probability-integral-transform-with-empirical-cdf">Probability Integral Transform with Empirical CDF</a></li>
+  <li><a href="#fitting-a-copula" id="toc-fitting-a-copula" class="nav-link" data-scroll-target="#fitting-a-copula">Fitting a Copula</a></li>
+  <li><a href="#rotations" id="toc-rotations" class="nav-link" data-scroll-target="#rotations">Rotations</a></li>
+  <li><a href="#cumulative-distribution-function-cdf" id="toc-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</a></li>
+  <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link" data-scroll-target="#probability-density-function-pdf">Probability Density Function (PDF)</a></li>
+  <li><a href="#conditional-cumulative-distribution-function-h-function" id="toc-conditional-cumulative-distribution-function-h-function" class="nav-link" data-scroll-target="#conditional-cumulative-distribution-function-h-function">Conditional Cumulative Distribution Function (h-function)</a></li>
+  <li><a href="#inverse-conditional-cumulative-distribution-function-inverse-h-function" id="toc-inverse-conditional-cumulative-distribution-function-inverse-h-function" class="nav-link" data-scroll-target="#inverse-conditional-cumulative-distribution-function-inverse-h-function">Inverse Conditional Cumulative Distribution Function (inverse h-function)</a></li>
+  <li><a href="#generating-random-samples-from-a-copula" id="toc-generating-random-samples-from-a-copula" class="nav-link" data-scroll-target="#generating-random-samples-from-a-copula">Generating Random Samples from a Copula</a></li>
+  <li><a href="#generating-conditional-random-samples-from-a-copula" id="toc-generating-conditional-random-samples-from-a-copula" class="nav-link" data-scroll-target="#generating-conditional-random-samples-from-a-copula">Generating Conditional Random Samples from a Copula</a></li>
+  <li><a href="#probability-integral-transform-with-fitted-cdf" id="toc-probability-integral-transform-with-fitted-cdf" class="nav-link" data-scroll-target="#probability-integral-transform-with-fitted-cdf">Probability Integral Transform with Fitted CDF</a></li>
+  <li><a href="#inverse-transformation" id="toc-inverse-transformation" class="nav-link" data-scroll-target="#inverse-transformation">Inverse transformation</a></li>
+  <li><a href="#discrete-variables" id="toc-discrete-variables" class="nav-link" data-scroll-target="#discrete-variables">Discrete Variables</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bivariate Copulas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="general-introduction-to-copulas" class="level2">
+<h2 class="anchored" data-anchor-id="general-introduction-to-copulas">General Introduction to Copulas</h2>
+<p>A copula is a method used to describe the dependence structure between several random variables, which have been widely used in research fields, such as finance and hydrology. While some other multivariate distributions, for instance a multivariate normal, allows only for a symmetric dependence structure with univariate and multivariate marginal distributions also being normal, copulas can model the joint distribution of multiple random variables separately from their marginal distributions.</p>
+<p>The Copula is a multivariate distribution with all univariate margins being uniform on <span class="math inline">\([0,1]\)</span> (Joe, 2014). Sklar’s Theorem states that any multivariate joint distribution function can be decomposed into marginal distributions and a copula function that describes the dependence structure between the variables (Sklar, 1959).</p>
+<p><strong>Sklar’s Theorem:</strong> Let <span class="math inline">\(F\)</span> be the joint distribution function of a multivariate random vector <span class="math inline">\((X_1, X_2, \ldots, X_n)\)</span>, with marginal distribution functions <span class="math inline">\(F_1, F_2, \ldots, F_n\)</span> for each variable. Then, there exists a copula function <span class="math inline">\(C: [0,1]^n \rightarrow [0,1]\)</span> such that for all <span class="math inline">\((x_1, x_2, \ldots, x_n)\)</span> in the support of <span class="math inline">\(F\)</span>, we have:</p>
+<p><span class="math display">\[
+F(x_1, x_2, \ldots, x_n) = C(F_1(x_1), F_2(x_2), \ldots, F_n(x_n)), \quad \mathbf{x}\in R^n
+\tag{1}
+\]</span></p>
+<p>In this tutorial we will further explain bivariate copulas with the use of an example dataset</p>
+<div id="29080d38" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vinecopulas.marginals <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vinecopulas.bivariate <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The data used as an example is the Abalone dataset from the <a href="http://archive.ics.uci.edu/ml/datasets/Abalone">UCI database</a> and has also been showcased in a chapter on vine copula based modelling by Czado and Nagler (2021). The data set contains measurements on diameter, length, and several types of weight (whole, shucked, viscera and shell) of abalones, a type of marine snail. For this example, only data on the female snails are included and are loaded in below.</p>
+<div id="82151e8d" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datapath <span class="op">=</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/VU-IVM/vinecopula/develop/doc/sample_data.csv"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(datapath)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">whole</th>
+<th data-quarto-table-cell-role="th">shuck</th>
+<th data-quarto-table-cell-role="th">vis</th>
+<th data-quarto-table-cell-role="th">shell</th>
+<th data-quarto-table-cell-role="th">diameter</th>
+<th data-quarto-table-cell-role="th">length</th>
+<th data-quarto-table-cell-role="th">rings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>0.6770</td>
+<td>0.2565</td>
+<td>0.1415</td>
+<td>0.21</td>
+<td>0.420</td>
+<td>0.530</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>0.7775</td>
+<td>0.2370</td>
+<td>0.1415</td>
+<td>0.33</td>
+<td>0.415</td>
+<td>0.530</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>0.7680</td>
+<td>0.2940</td>
+<td>0.1495</td>
+<td>0.26</td>
+<td>0.425</td>
+<td>0.545</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>0.8945</td>
+<td>0.3145</td>
+<td>0.1510</td>
+<td>0.32</td>
+<td>0.440</td>
+<td>0.550</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>0.6065</td>
+<td>0.1940</td>
+<td>0.1475</td>
+<td>0.21</td>
+<td>0.380</td>
+<td>0.525</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Here, we will only fit a bivariate copula to two variables, whole and shuck, which have been visualized in the following scatter plot</p>
+<div id="eaa5faed" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(df.whole, df.shuck)  <span class="co"># scatter plot</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Whole"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Shuck"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre><code>Text(0, 0.5, 'Shuck')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-integral-transform-with-empirical-cdf" class="level2">
+<h2 class="anchored" data-anchor-id="probability-integral-transform-with-empirical-cdf">Probability Integral Transform with Empirical CDF</h2>
+<p>In order to fit a copula to the data, the data has to be transformed into uniform margins. They can be obtained via the Probability Integral Transform (PIT). The probability integral transform states that if <span class="math inline">\(X\)</span> is a continuous random variable with cumulative distribution function <span class="math inline">\(F_x(x)\)</span>, then the random variable <span class="math inline">\(\mathbf{u} = F_x(x)\)</span> has a uniform distribution on the interval <span class="math inline">\((0, 1)\)</span>.</p>
+<p>The cumulative distribution function <span class="math inline">\(F_X(x)\)</span> of a random variable <span class="math inline">\(X\)</span> is defined as the probability that <span class="math inline">\(X\)</span> will have a value less than or equal to <span class="math inline">\(x\)</span>, expressed mathematically as:</p>
+<p><span class="math display">\[
+F_X(x) = P(X \leq x) \tag{2}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(F_X(x)\)</span> is the function of <span class="math inline">\(X\)</span>.</li>
+<li><span class="math inline">\(X\)</span> is a real-valued variable.</li>
+<li><span class="math inline">\(P\)</span> denotes the probability.</li>
+</ul>
+<p>Therefore, if <span class="math inline">\(x_i\)</span> is a very low value in <span class="math inline">\(X\)</span>, its corresponding value in <span class="math inline">\(\mathbf{u}\)</span>, <span class="math inline">\(u_i\)</span>, will be close to 0, while a relatively high value in <span class="math inline">\(X\)</span> would result in a value close to 1 in <span class="math inline">\(\mathbf{u}\)</span>.</p>
+<p>Here we show an example using the empirical CDF (ECDF) which is the same as computing normalized ranks. The transformed data is called pseudo data. An example with a fitted parametric distribution is shown later.</p>
+<hr>
+<p><strong>Algorithm 1</strong>: Computing normalized ranks</p>
+<hr>
+<p><strong>Input:</strong> variable <span class="math inline">\(\mathbf{x}\)</span> with <span class="math inline">\(n\)</span> samples, where <span class="math inline">\(\mathbf{x} = \{x_1, x_2, \ldots, x_n\}\)</span>.</p>
+<p><strong>output:</strong> The ECDF values <span class="math inline">\(\mathbf{u} = \{u_1, u_2, \ldots, u_n\}\)</span> represent the uniformly distributed pseudo data on corresponding to <span class="math inline">\(\mathbf{x}\)</span>.</p>
+<ol type="1">
+<li><p>Rank the data from 1 to <span class="math inline">\(n\)</span>, where the lowest value is assigned a rank of 1, the second lowest a rank of 2, and so on, until the highest value is assigned a rank of <span class="math inline">\(n\)</span>.Denote the ranks as <span class="math inline">\(R = \{r_1, r_2, \ldots, r_n\}\)</span>, where <span class="math inline">\(r_i\)</span> represents the rank of <span class="math inline">\(x_i\)</span>.</p></li>
+<li><p>For each sample <span class="math inline">\(x_i\)</span> in the dataset compute the normalized rank <span class="math inline">\(u_i\)</span> using the formula: <span class="math display">\[
+u_i = \frac{{r_i}}{{n}} \tag{3}
+\]</span></p></li>
+</ol>
+<div id="6d3fd69d" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(df)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> pseudodata(x[:, :<span class="dv">2</span>])  <span class="co"># computes the pseudodata</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>u1 <span class="op">=</span> u[:, <span class="dv">0</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>u2 <span class="op">=</span> u[:, <span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="fitting-a-copula" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-a-copula">Fitting a Copula</h2>
+<p>Once the data has been transformed, a copula can be fit to it. The following table shows the available copula types and their ID. The ID is used as an input parameter to the fitting function to indicate which copula needs to be fitted.</p>
+<p><strong>Table 1</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 9%">
+<col style="width: 57%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th><strong>Copula</strong></th>
+<th><span class="math inline">\(\mathbf{C(u_1, u_2)}\)</span></th>
+<th><strong>Parameters</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Gaussian</td>
+<td><span class="math inline">\(\Phi_{\theta}(\Phi^{-1}(u_1),\Phi^{-1}(u_2))\)</span></td>
+<td><span class="math inline">\(\theta \in [-1, 1]\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Gumbel</td>
+<td><span class="math inline">\(\exp \!\left[-\left((-\log(u_1))^{\theta }+(-\log(u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Gumbel 90 degrees</td>
+<td><span class="math inline">\(u_2 - \exp \!\left[-\left((-\log(1-u_1))^{\theta }+(-\log(u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Gumbel 180 degrees</td>
+<td><span class="math inline">\(u_1 + u_2 - 1 + \exp \!\left[-\left((-\log(1-u_1))^{\theta }+(-\log(1-u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Gumbel 270 degrees</td>
+<td><span class="math inline">\(u_2 - \exp \!\left[-\left((-\log(u_1))^{\theta }+(-\log(1- u_2))^{\theta }\right)^{1/\theta }\right]\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Clayton</td>
+<td><span class="math inline">\(\left[\max \left\{u_1^{-\theta }+u_2^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Clayton 90 degrees</td>
+<td><span class="math inline">\(u_2 - \left[\max \left\{(1-u_1)^{-\theta }+u_2^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Clayton 180 degrees</td>
+<td><span class="math inline">\(u_1 + u_2 - 1 + \left[\max \left\{(1-u_1)^{-\theta }+(1-u_2)^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Clayton 270 degrees</td>
+<td><span class="math inline">\(u_2 - \left[\max \left\{u_1^{-\theta }+(1-u_2)^{-\theta }-1;0\right\}\right]^{-1/\theta}\)</span></td>
+<td><span class="math inline">\(\theta \in [-1,\infty) \setminus \{0\}\)</span></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Frank</td>
+<td><span class="math inline">\(-{\frac {1}{\theta }}\log \!\left[1+{\frac {(\exp(-\theta u)-1)(\exp(-\theta v)-1)}{\exp(-\theta )-1}}\right]\)</span></td>
+<td><span class="math inline">\(\theta \in \mathbb{R} \setminus \{0\}\)</span></td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Joe</td>
+<td><span class="math inline">\({1-\left[(1-u_1)^{\theta }+(1-u_2)^{\theta }-(1-u_1)^{\theta }(1-u_2)^{\theta }\right]^{1/\theta }}\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Joe 90 degrees</td>
+<td><span class="math inline">\({u_2 - (1-\left[(u_1)^{\theta }+(1-u_2)^{\theta }-(u_1)^{\theta }(1-u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Joe 180 degrees</td>
+<td><span class="math inline">\({u_1 + u_2 -\left[(u_1)^{\theta }+(u_2)^{\theta }-(u_1)^{\theta }(u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Joe 270 degrees</td>
+<td><span class="math inline">\({u-1 - (1-\left[(1-u_1)^{\theta }+(u_2)^{\theta }-(1-u_1)^{\theta }(u_2)^{\theta }\right]^{1/\theta }})\)</span></td>
+<td><span class="math inline">\(\theta \in [1, \infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Student</td>
+<td><span class="math inline">\(T_{\theta_2} \left( T_{\theta_2}^{-1}(u_1), T_{\theta_2}^{-1}(u_2); \theta_1 \right)\)</span></td>
+<td><span class="math inline">\(\theta_1 \in [-1, 1] \text{ and } \theta_2 \in [0, \infty)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\Phi_{\theta}\)</span> is the bivariate standard normal cumulative distribution function with correlation parameter <span class="math inline">\(\theta\)</span>.</li>
+<li><span class="math inline">\(\Phi^{-1}\)</span> is the inverse of the univariate standard normal cumulative distribution function.</li>
+<li><span class="math inline">\(T_{\theta_2}\)</span> is the bivariate cumulative distribution function (CDF) of the Student’s t distribution with <span class="math inline">\(\theta_2\)</span> degrees of freedom and correlation parameter <span class="math inline">\(\theta_1\)</span>.</li>
+<li><span class="math inline">\(T_{\theta_2}^{-1}\)</span> is the inverse univariate CDF of the Student’s t distribution with <span class="math inline">\(\theta_2\)</span> degrees of freedom.</li>
+</ul>
+<p>When fitting a copula to data, the parameters of the selected copula family are estimated. The estimation method depends on the copula family.</p>
+<p>In this example we will use the <code>bestcop</code> function to estimate the copula that fits the data best using all copulas in Table 1. However, also a selection of copulas can be provided if the user is not interested in fitting all. The goodness of fit is measured using the Akaike Information Criterion (AIC)</p>
+<p>The formula for the AIC is:</p>
+<p><span class="math display">\[
+\text{AIC} = -2 \ell + 2D \tag{4}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\ell\)</span> is the log-likelihood with parameters <span class="math inline">\(\theta\)</span> and observed data <span class="math inline">\(x_1, x_2\)</span>, is given by:</li>
+</ul>
+<p><span class="math display">\[
+\ell(u_1, u_2 | \theta) = \sum_{i=1}^{n} \log(c(u_1, u_2 | \theta))  \tag{5}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(D\)</span> is the number of parameters estimated in the model.</li>
+</ul>
+<p>The <code>bestcop</code> function returns the copula with the lowest AIC, which in the case below is a Survival Gumbel.</p>
+<div id="9d7001a0" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cops <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">16</span>))  <span class="co"># all copulas</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cop, par, AIC <span class="op">=</span> bestcop(cops, u)  <span class="co"># fit best copula</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>copulas[cop]  <span class="co"># best copula</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre><code>'Gumbel180'</code></pre>
+</div>
+</div>
+</section>
+<section id="rotations" class="level2">
+<h2 class="anchored" data-anchor-id="rotations">Rotations</h2>
+<p>Several Copulas can be rotated clockwise by 90, 180 and 270 degrees, such that:</p>
+<ul>
+<li><p><span class="math inline">\(C_{90}(u_1, u_2) = u_2 - C(1 - u_1, u_2)\)</span></p></li>
+<li><p><span class="math inline">\(C_{180}(u_1, u_2) = u_1 + u_2 - 1 + C(1 - u_1, 1 - u_2)\)</span></p></li>
+<li><p><span class="math inline">\(C_{270}(u_1, u_2) = u_1 - C(u_1, 1 - u_2)\)</span>:</p></li>
+</ul>
+<p>(Klein et al., 2020)</p>
+</section>
+<section id="cumulative-distribution-function-cdf" class="level2">
+<h2 class="anchored" data-anchor-id="cumulative-distribution-function-cdf">Cumulative Distribution Function (CDF)</h2>
+<p>Once we have found a copula that fits the data well, we can calculate its CDF as stated in (1) (<span class="math inline">\(C(u_1, u_2\)</span>)) using the <code>CDF</code> function</p>
+<div id="5c5462d1" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> CDF(cop, u, par)  <span class="co"># CDF</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>U1, U2 <span class="op">=</span> np.meshgrid(u1, u2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x1, y1)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> CDF(cop, np.vstack((X.flatten(), Y.flatten())).T, par)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.resize(z, X.shape)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">"projection"</span>: <span class="st">"3d"</span>})</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>surf <span class="op">=</span> ax.plot_surface(X, Y, Z, cmap<span class="op">=</span>cm.coolwarm, rstride<span class="op">=</span><span class="dv">10</span>, cstride<span class="op">=</span><span class="dv">10</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"$u_1$"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"$u_2$"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">"CDF"</span>, rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>ax.zaxis.labelpad <span class="op">=</span> <span class="op">-</span><span class="fl">0.7</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-density-function-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="probability-density-function-pdf">Probability Density Function (PDF)</h2>
+<p>The PDF of a copula, denoted as <span class="math inline">\(c(u_1, u_2, \ldots, u_n)\)</span>, describes the density of probability at a particular point in the joint distribution space defined by the copula. It quantifies the likelihood of observing a specific combination of quantiles for the variables.</p>
+<p>The relationship between the CDF and the PDF of a copula the same as the relationship between the CDF and the PDF of a univariate continuous random variable. Specifically, the PDF is the derivative of the CDF (Czado &amp; Nagler, 2021).</p>
+<p>If <span class="math inline">\(C(u_1, u_2)\)</span> is the copula CDF, then the copula PDF <span class="math inline">\(c(u_1, u_2)\)</span> is given by taking the partial derivatives of the copula CDF with respect to each of its variables: <span class="math display">\[c(u_1, u_2) = \frac{\partial C(u_1, u_2) }{\partial u_1 \partial u_2}  \tag{6}\]</span></p>
+<p>To compute the PDF we can use the <code>PDF</code> function</p>
+<div id="4f2445ea" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> PDF(cop, u, par)  <span class="co"># PDF</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[6.43481561 0.86226783 5.68367378 ... 3.69354582 4.7430459  1.65446006]</code></pre>
+</div>
+</div>
+</section>
+<section id="conditional-cumulative-distribution-function-h-function" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-cumulative-distribution-function-h-function">Conditional Cumulative Distribution Function (h-function)</h2>
+<p>The conditional CDF, also referred to as the h-function, is the conditional probability distribution of one variable given a known value of the other variable (Aas et al.&nbsp;2007). The h-function is defined as the partial derivative of the copula CDF, <span class="math inline">\(C(u_1, u_2)\)</span>, with respect to the conditioning variable:</p>
+<p><span class="math display">\[
+h(u_1, u_2) = P(U_1≤u_1|U_2=u_2) =  {C_{1|2}(u_1,u_2)} = \frac{\partial C(u_1, u_2 )}{\partial u_2}  \tag{7}
+\]</span></p>
+<p>In our example we have to variables, Whole and Shuck. If the pseudo data of Whole is <span class="math inline">\(u_1\)</span> and the speudo data of Shuck is <span class="math inline">\(u_2\)</span> and we want to calculate the h-function of Whole with respect to Shuck, <span class="math inline">\({C_{1|2}(u_1,u_2)}\)</span>, the partial derivative is used with respect to <span class="math inline">\(u_2\)</span> as in (7). The h-function can be calculated using the <code>hfunc</code> function as follows:</p>
+<div id="cf27c410" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># h-functions</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> hfunc(cop, u1, u2, par, un<span class="op">=</span><span class="dv">1</span>)  <span class="co"># conditional CDF of Shuck (u2) given Whole (u1)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> hfunc(cop, u1, u2, par, un<span class="op">=</span><span class="dv">2</span>)  <span class="co"># conditional CDF of Whole (u1) given Shuck (u2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inverse-conditional-cumulative-distribution-function-inverse-h-function" class="level2">
+<h2 class="anchored" data-anchor-id="inverse-conditional-cumulative-distribution-function-inverse-h-function">Inverse Conditional Cumulative Distribution Function (inverse h-function)</h2>
+<p>The inverse h-functions computes the reverse of the h-function. For example, if <span class="math inline">\(v_2 = {C_{1|2}(u_1,u_2)}\)</span> then <span class="math inline">\({C_{1|2}^{-1}(u_1,v_2)} = u_2\)</span>. To showcase this we can use the <code>hfuncinverse</code> function with the previously calculated <span class="math inline">\(v_2\)</span> and <span class="math inline">\(u_1\)</span> to obtain <span class="math inline">\(u_2\)</span>. In the figure below it is clear that <span class="math inline">\({C_{1|2}^{-1}(u_1,v_2)} = u_2\)</span></p>
+<div id="bc4a606a" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>u2_2 <span class="op">=</span> hfuncinverse(cop, u1, v2, par, un<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(u2, u2_2)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$u_2$"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"${C_{1|2}^{-1}(u_1,v_2)}$"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="generating-random-samples-from-a-copula" class="level2">
+<h2 class="anchored" data-anchor-id="generating-random-samples-from-a-copula">Generating Random Samples from a Copula</h2>
+<p>Random samples from a fitted copula can be generated using the conditional CDF previously described. The general algorithm to do so is rather simple and intuitive.</p>
+<hr>
+<p><strong>Algorithm 2</strong>: Generating random samples from a copula based on the conditional CDF</p>
+<hr>
+<p><strong>Input</strong>: The copula parameters <span class="math inline">\(\theta\)</span>, and the number of samples <span class="math inline">\(n\)</span></p>
+<p><strong>Output</strong>: Random Samples <span class="math inline">\((\mathbf{u_1},\mathbf{u_2})\)</span> of length <span class="math inline">\(n\)</span> from the copula with parameter <span class="math inline">\(\theta\)</span></p>
+<ol type="1">
+<li>Draw two independent uniform random variates <span class="math inline">\((\mathbf{u_1} ,\mathbf{v_1})\)</span> of length <span class="math inline">\(n\)</span></li>
+<li>Set <span class="math inline">\(\mathbf{u_2} = {C_{1|2}^{-1}(\mathbf{u_1} ,\mathbf{v_1})}\)</span></li>
+</ol>
+<hr>
+<p>However, depending on the definition of the copula, a more efficient simulation methods can be available. For example for the Gaussian copula random samples can be generated by first obtaining a set of correlated normally distributed variates <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> using Choleski’s decomposition, and then transforming these to uniform variables <span class="math inline">\(u_1 = \Phi(v_1)\)</span> and <span class="math inline">\(u_2 = \Phi(v_2)\)</span>, where <span class="math inline">\(\Phi\)</span> is the standard multivariate normal.</p>
+<p>Random samples can be generated using the <code>random</code> function, as illustrated below:</p>
+<div id="71c624b3" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate random samples</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(u)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ur <span class="op">=</span> random(cop, par, n)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(u1, u2, label<span class="op">=</span><span class="st">"Data"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(ur[:, <span class="dv">0</span>], ur[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$u_1$"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$u_2$"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="generating-conditional-random-samples-from-a-copula" class="level2">
+<h2 class="anchored" data-anchor-id="generating-conditional-random-samples-from-a-copula">Generating Conditional Random Samples from a Copula</h2>
+<p>Using a copula, it is also possible to generate random samples of one variable given a fixed variable of another. This can be achieved by following the same steps that are used in Algorithm 2, however, instead of using a random univariate for <span class="math inline">\(\mathbf{u_1}\)</span>, a known value of <span class="math inline">\(\mathbf{u_1}\)</span> can be used, such that <span class="math inline">\(\mathbf{u_2} = {C_{2|1}^{-1}(\mathbf{u_1} ,\mathbf{v_2})}\)</span> for specific <span class="math inline">\(\mathbf{u_1}\)</span> values. Likewise conditional values of <span class="math inline">\(\mathbf{u_1}\)</span> can generated with known values of <span class="math inline">\(\mathbf{u_2}\)</span> and a random independent uniform variate <span class="math inline">\(\mathbf{v_1}\)</span> , such that <span class="math inline">\(\mathbf{u_1} = {C_{1|2}^{-1}(\mathbf{v_1}, \mathbf{u_2})}\)</span>.</p>
+<p>To generate conditional random samples the <code>randomconditional</code> function can be used, as showcased below:</p>
+<div id="1132b480" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate conditional samples</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span>  <span class="co"># number of samples</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ui1 <span class="op">=</span> <span class="fl">0.3</span>  <span class="co"># conditional value of u1</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>uii2 <span class="op">=</span> randomconditional(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    cop, ui1, par, n, un<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># conditional samples of u2 based on u1</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ui2 <span class="op">=</span> <span class="fl">0.8</span>  <span class="co"># conditional value of u1</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>uii1 <span class="op">=</span> randomconditional(</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    cop, ui2, par, n, un<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># conditional samples of u1 based on u2</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>plt.scatter(u1, u2, label<span class="op">=</span><span class="st">"Data"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(ur[:, <span class="dv">0</span>], ur[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    np.full(shape<span class="op">=</span>n, fill_value<span class="op">=</span>ui1),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    uii2,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Random conditional: $u_1$ = 0.3"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    uii1,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    np.full(shape<span class="op">=</span>n, fill_value<span class="op">=</span>ui2),</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Random conditional: $u_2$ = 0.8"</span>,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"$u_1$"</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$u_2$"</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="probability-integral-transform-with-fitted-cdf" class="level2">
+<h2 class="anchored" data-anchor-id="probability-integral-transform-with-fitted-cdf">Probability Integral Transform with Fitted CDF</h2>
+<p>As mentioned previously, the data can be transformed into uniformly distributed marginals via the PIT by using the ECDF (explained above) or by using an estimated parametric CDF.</p>
+<p>To estimate different CDFs and to find the best fitting CDF for each variable the <code>best_fit_distribution</code> function can be used.</p>
+<div id="2aeb3aff" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit marginal distributions</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x1dist <span class="op">=</span> best_fit_distribution(x[:, <span class="dv">0</span>])  <span class="co"># best fit distribution for Whole</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x2dist <span class="op">=</span> best_fit_distribution(x[:, <span class="dv">1</span>])  <span class="co"># best fit distribution for Shuck</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Once the best fit distribution has been determined, the CDF can be calculated using the statistical function provided in <code>scipy.stats</code></p>
+<div id="d6e80b17" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> x[:, :<span class="dv">2</span>].copy()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>u[:, <span class="dv">0</span>] <span class="op">=</span> x1dist[<span class="dv">0</span>].cdf(u[:, <span class="dv">0</span>], <span class="op">*</span>x1dist[<span class="dv">1</span>])  <span class="co"># CDF of Whole</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>u[:, <span class="dv">1</span>] <span class="op">=</span> x2dist[<span class="dv">0</span>].cdf(u[:, <span class="dv">1</span>], <span class="op">*</span>x2dist[<span class="dv">1</span>])  <span class="co"># CDF of Shuck</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inverse-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="inverse-transformation">Inverse transformation</h2>
+<p>In order to transform the simulated uniform data points to resemble the original data we can apply the inverse CDF to the pseudo data: <span class="math inline">\(F_{x}^{-1}(\mathbf{u})\)</span>. This can be achieved by using the previously fitted distribution and the <code>pff</code> function (Percent point function) of <code>scipy.stats</code>.</p>
+<div id="1dbfa313" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x1i <span class="op">=</span> x1dist[<span class="dv">0</span>].ppf(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    ur[:, <span class="dv">0</span>], <span class="op">*</span>x1dist[<span class="dv">1</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># calculat the ppf of the previously generated random samples of u1</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>x2i <span class="op">=</span> x2dist[<span class="dv">0</span>].ppf(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    ur[:, <span class="dv">1</span>], <span class="op">*</span>x2dist[<span class="dv">1</span>]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># calculat the ppf of the previously generated random samples of u2</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(x[:, <span class="dv">0</span>], x[:, <span class="dv">1</span>], label<span class="op">=</span><span class="st">"Data"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1i, x2i, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Whole"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Shuck"</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="discrete-variables" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-variables">Discrete Variables</h2>
+<p>While copulas are more commonly used for continuous data, they can also be a useful tool to model discrete data. However, if the probability integral transfer method is used directly on discrete data with a discrete distribution, such that <span class="math inline">\(\mathbf{u} = F_x(\mathbf{x})\)</span>, <span class="math inline">\(\mathbf{u}\)</span> would not be uniform. Therefore, additional steps are required to uniform marginals for discrete data. Hence, the following distributional transform can be used (Mitskopoulos et al., 2022):</p>
+<p><span class="math display">\[
+u = F_x−(x) + V(F_x(x) − (F_x−(x))
+\tag{8}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(F_x−(x) = P(X &lt; x)\)</span></li>
+<li><span class="math inline">\(F_x(x) = Pr(X &lt;= x)\)</span>,</li>
+<li><span class="math inline">\(V\)</span> is a random variable uniformly distributed on [0,1] independent of <span class="math inline">\(X\)</span>.</li>
+</ul>
+<p>To showcase this distribution transform, the <em>rings</em> variable from the Abalone dataset will be used as a discrete variable, and a copula will be fitted between the <em>shell</em> and <em>rings</em> variable. A discrete distribution will be fit to the <em>rings</em> data using the <code>best_fit_distributiondiscrete</code> function. The distributional transform described in (8) can be applied using the <code>pseudodiscr</code> function. The <em>shell</em> data can be transformed using the regular PIT method, after which a copula can be fit between the continuous and discrete variable, as showcased below.</p>
+<div id="fe577ca3" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.vstack((np.array(df.shell), np.array(df.rings))).T  <span class="co"># shell and rings data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>xshelldist <span class="op">=</span> best_fit_distribution(x[:, <span class="dv">0</span>])  <span class="co"># best fit distribution of the shell data</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>xringsdist <span class="op">=</span> best_fit_distributiondiscrete(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    x[:, <span class="dv">1</span>]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># best fit distribution of the rings data</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>xcdf <span class="op">=</span> xringsdist[<span class="dv">0</span>].cdf(x[:, <span class="dv">1</span>], <span class="op">*</span>xringsdist[<span class="dv">1</span>])  <span class="co"># cdf of the rings data</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>xpmf <span class="op">=</span> xringsdist[<span class="dv">0</span>].pmf(x[:, <span class="dv">1</span>], <span class="op">*</span>xringsdist[<span class="dv">1</span>])  <span class="co"># pmf of the rings data</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> x.copy()</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>u[:, <span class="dv">0</span>] <span class="op">=</span> xshelldist[<span class="dv">0</span>].cdf(</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    u[:, <span class="dv">0</span>], <span class="op">*</span>xshelldist[<span class="dv">1</span>]</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># Probability Integral Transform of shell data</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>u[:, <span class="dv">1</span>] <span class="op">=</span> pseudodiscr(xcdf, xpmf)  <span class="co"># distribution transform of rings data</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>u1 <span class="op">=</span> u[:, <span class="dv">0</span>]</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>u2 <span class="op">=</span> u[:, <span class="dv">1</span>]</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>cop, par, AIC <span class="op">=</span> bestcop(cops, u)  <span class="co"># fit best copula</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>copulas[cop]  <span class="co"># best copula</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>u1 <span class="op">=</span> u[:, <span class="dv">0</span>]</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>u2 <span class="op">=</span> u[:, <span class="dv">1</span>]</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(u)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>ur <span class="op">=</span> random(cop, par, n)  <span class="co"># generate random samples</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>x1i <span class="op">=</span> xshelldist[<span class="dv">0</span>].ppf(</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    ur[:, <span class="dv">0</span>], <span class="op">*</span>xshelldist[<span class="dv">1</span>]</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># calculate the ppf of the previously generated random samples of u1</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>x2i <span class="op">=</span> xringsdist[<span class="dv">0</span>].ppf(</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    ur[:, <span class="dv">1</span>], <span class="op">*</span>xringsdist[<span class="dv">1</span>]</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># calculate the ppf of the previously generated random samples of u2</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Create subplots</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].scatter(u1, u2, label<span class="op">=</span><span class="st">"Data"</span>)</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].scatter(ur[:, <span class="dv">0</span>], ur[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"Random"</span>)</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_xlabel(<span class="st">"$u_1$"</span>)</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].set_ylabel(<span class="st">"$u_2$"</span>)</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].scatter(x[:, <span class="dv">0</span>], x[:, <span class="dv">1</span>])</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].scatter(x1i, x2i, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_xlabel(<span class="st">"Shell"</span>)</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_ylabel(<span class="st">"Rings"</span>)</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>fig.legend(loc<span class="op">=</span><span class="st">"upper center"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.08</span>), ncol<span class="op">=</span><span class="dv">2</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bivariatecopulas_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Czado, C., &amp; Nagler, T. (2021). Vine Copula Based Modeling. Annual Review of Statistics and Its Application, 9, 453–477. https://doi.org/10.1146/annurev-statistics-040220-101153</p>
+<p>Joe, H. (2014). Dependence Modeling with Copulas (1st ed.). Chapman and Hall/CRC. https://doi.org/https://doi.org/10.1201/b17116</p>
+<p>Klein, N., Kneib, T., Marra, G., &amp; Radice, R. (2020). Bayesian mixed binary-continuous copula regression with an application to childhood undernutrition. In Flexible Bayesian Regression Modelling (pp.&nbsp;121–152). Elsevier. https://doi.org/10.1016/B978-0-12-815862-3.00011-1</p>
+<p>Mitskopoulos, L., Amvrosiadis, T., &amp; Onken, A. (2022). Mixed vine copula flows for flexible modeling of neural dependencies. Frontiers in Neuroscience, 16. https://doi.org/10.3389/fnins.2022.910122</p>
+<p>Sklar, M. (1959). Fonctions de repartition an dimensions et leurs marges. Publ. Inst. Statist. Univ. Paris, 8, 229–231.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://medewsa.eu"><img src="../..\images/logos/Logo_MedEWSa_PNG_TRASPARENT.png" style="margin-right:1.2rem;" height="48" alt="MedEWSa"></a> <a href="https://ec.europa.eu"><img src="../..\images/logos/funded_EN/horizontal/RGB/PNG/EN_FundedbytheEU_RGB_POS.png" height="48" alt="EU Funded"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" class="img-fluid"></a></p>
+</div>
+    <div class="nav-footer-right">
+<p>This repository is funded by the European Union. Its contents are the sole responsibility of the author(s) and do not necessarily reflect the views of the European Union.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
