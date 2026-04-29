@@ -14,6 +14,8 @@ subtitle: "EGU26 Short Course SC2.1"
 
 ## Description
 
+::: {.description}
+
 In the past years, the analysis of compound events has emerged as an essential
 step to enhance our knowledge of and response to multi-hazard high-impact events
 that occur simultaneously or sequentially, causing interconnected or aggravated impacts.
@@ -34,6 +36,8 @@ dynamics, policy frameworks, and adaptation challenges.
 Two applied sessions provide hands-on training: vine copulas for multivariate
 dependence analysis, and large language models for structured impact extraction
 from news media.
+
+:::
 
 ## Schedule
 
