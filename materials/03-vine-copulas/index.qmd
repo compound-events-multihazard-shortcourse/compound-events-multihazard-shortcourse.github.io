@@ -1,5 +1,9 @@
 ---
 title: "Application I: Vine Copulas for Multivariate Dependence"
+format:
+  html:
+    grid:
+      body-width: 800px
 ---
 
 ::: {.callout-note}

@@ -34,10 +34,14 @@
 }
 
 
-// Section headings ------------------------------------------------------------
+// Section headings and content ------------------------------------------------
 
 main h2 {
   margin-top: 1.5rem !important;
+}
+
+.description p {
+  text-align: justify;
 }
 
 
@@ -127,35 +131,7 @@ img.figure-img,
   margin-bottom: 0.5rem;
 }
 
-// Algorithm sections (Lists & Text) room to breathe
-// Target the main document content to guarantee the styles apply
-#quarto-document-content {
 
-  ol, ul {
-    padding-left: 2rem; /* Gives the numbers proper indentation */
-
-    li {
-      line-height: 2.2; /* Extra tall line-height for tall inline MathJax */
-      margin-bottom: 1rem; /* Space between main steps */
-
-      /* Target paragraphs inside lists to prevent margin collapsing */
-      p {
-        margin-bottom: 0.5rem;
-        margin-top: 0.5rem;
-      }
-
-      /* Style Nested lists */
-      ol, ul {
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
-
-        li {
-          margin-bottom: 0.75rem; /* Space out the sub-steps */
-        }
-      }
-    }
-  }
-}
 
 
 // Footer ----------------------------------------------------------------------

@@ -15,6 +15,8 @@ subtitle: "EGU26 Short Course SC2.1"
 
 ## Description
 
+::: {.description}
+
 Compounding hazards can lead to interconnected or aggravated impacts. In recent years, the analysis of compound events has become essential to understand and to improve our response to such high-impact multi-hazard disasters.
 
 Compound events involve two events happening either simultaneously or sequentially. These events can be independent of each other (in which the outcome of one event has no effect on the probability of the other), or they can be dependent (in which the outcome of one event affects the probability of another). 
@@ -26,6 +28,8 @@ All course material and instructions to run the applications are and will remain
 
 Short course attendees are welcome to attend the annual multi-risk dinner on Tuesday May 5th - 19:00h at Gleis//Garten  (Eichenstraße 2, 1120 Wien, Austria) by signing up here: <https://forms.gle/ezx1tNudoJTeXmBs9>
 
+
+:::
 
 ## Schedule
 
