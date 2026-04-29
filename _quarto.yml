@@ -52,6 +52,3 @@ format:
     from: markdown+emoji
     toc: true
     toc-depth: 2
-    grid:
-      body-width: 1100px    # Default is usually ~900px. This widens the text column.
-      margin-width: 300px   # This ensures the TOC still has enough room on the right.
