@@ -1,5 +1,5 @@
 ---
-title: "Application I: Vine Copulas for Multivariate Dependence"
+title: "Vine Copulas for Multivariate Dependence"
 format:
   html:
     grid:

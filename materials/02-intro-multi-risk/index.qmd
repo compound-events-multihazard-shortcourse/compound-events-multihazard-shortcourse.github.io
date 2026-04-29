@@ -1,5 +1,5 @@
 ---
-title: "Introduction II: From Single-Hazard to Multi-Risk"
+title: "From Single-Hazard to Multi-Risk"
 ---
 
 ::: {.callout-note}
