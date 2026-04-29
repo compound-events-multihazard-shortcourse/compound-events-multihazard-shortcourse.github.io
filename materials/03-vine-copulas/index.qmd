@@ -13,7 +13,9 @@ Slides for this session will be posted shortly before the course.
 ![](../../images/judith_github.jpg){.rounded-circle width="130px"}
 :::
 ::: {.column width="80%"}
-Judith Claassen is a researcher at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She earned her bachelor degree in Earth and Environmental Sciences at the Amsterdam University College, and holds a master in Civil Engineering: Water Management from TU Delft. Her research focuses on modelling multi-hazard events using probabilistic methods, such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also served as the first chair of the Early Career Researcher board
+Judith Claassen is a researcher at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She earned her bachelor degree in Earth and Environmental Sciences at the Amsterdam University College, and holds a master in Civil Engineering: Water Management from TU Delft. Her research focuses on modelling multi-hazard events using probabilistic methods, such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also served as the first chair of the Early Career Researcher board\
+
+:computer: <https://research.vu.nl/en/persons/judith-claassen/>
 :::
 :::
 
