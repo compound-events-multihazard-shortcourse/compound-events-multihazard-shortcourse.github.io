@@ -39,7 +39,7 @@ website:
     background: light
     left: |
       [![MedEWSa](/images/logos/Logo_MedEWSa_PNG_TRASPARENT.png){height="48px" style="margin-right:1.2rem;"}](https://medewsa.eu)
-      [![EU Funded](/images/logos/funded_EN/horizontal/RGB/PNG/EN_FundedbytheEU_RGB_POS.png){height="48px"}](https://ec.europa.eu)
+      [![EU Funded](/images/logos/EN_FundedbytheEU_RGB_POS.png){height="48px"}](https://ec.europa.eu)
     center: |
       [![](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
     right: |
