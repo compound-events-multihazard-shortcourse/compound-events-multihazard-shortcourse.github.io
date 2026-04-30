@@ -12,8 +12,8 @@ format:
 :spiral_calendar: May 06, 2026\
 :alarm_clock: 08:30 – 10:15 (CEST)\
 :hotel: Room -2.82, Austria Center Vienna\
-:package: All materials: <https://egu26-compound-events-sc.github.io/>\
-:computer: EGU website: <https://www.egu26.eu/session/56950>
+:package: All materials: [https://egu26-compound-events-sc.github.io/](https://egu26-compound-events-sc.github.io/){target="_blank"}\
+:computer: EGU website: [https://www.egu26.eu/session/56950](https://www.egu26.eu/session/56950){target="_blank"}
 
 ---
 
@@ -31,7 +31,7 @@ These introductory talks are then followed by two applied sessions that provide 
 All course material and instructions to run the applications are and will remain available online on this website.\
 
 
-Short course attendees are welcome to attend the annual multi-risk dinner on Tuesday May 5th - 19:00h at Gleis//Garten ([Eichenstraße 2, 1120 Wien, Austria](https://maps.app.goo.gl/g1WdizvY1V1tMite8)) by signing up [here](https://forms.gle/ezx1tNudoJTeXmBs9)
+Short course attendees are welcome to attend the annual multi-risk dinner on Tuesday May 5th - 19:00h at Gleis//Garten ([Eichenstraße 2, 1120 Wien, Austria](https://maps.app.goo.gl/g1WdizvY1V1tMite8){target="_blank"}) by signing up [here](https://forms.gle/ezx1tNudoJTeXmBs9){target="_blank"}
 
 
 :::

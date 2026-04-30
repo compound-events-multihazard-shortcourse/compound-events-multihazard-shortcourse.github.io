@@ -34,7 +34,7 @@ areas:
 
 ## Setup
 
-You need **Python 3.10+** and the [`vinecopulas`](https://github.com/VU-IVM/VineCopulas) package (pip is included with Python). Install the dependencies:
+You need **Python 3.10+** and the [`vinecopulas`](https://github.com/VU-IVM/VineCopulas){target="_blank"} package (pip is included with Python). Install the dependencies:
 
 ```bash
 pip install vinecopulas notebook "pandas<2.2" "numpy<1.27" "matplotlib<3.9"
@@ -54,14 +54,14 @@ jupyter notebook
 
 :page_facing_up: [View rendered jupyter notebook](bivariatecopulas.html)
 
-:arrow_down: [Download bivariatecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/bivariatecopulas.ipynb)
+:arrow_down: [Download bivariatecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/bivariatecopulas.ipynb){target="_blank"}
 :::
 ::: {.column width="50%"}
 **Part 2: Vine Copulas**
 
 :page_facing_up: [View rendered jupyter notebook](vinecopulas.html)
 
-:arrow_down: [Download vinecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/vinecopulas.ipynb)
+:arrow_down: [Download vinecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/vinecopulas.ipynb){target="_blank"}
 :::
 :::
 
