@@ -43,9 +43,9 @@ Short course attendees are welcome to attend the annual multi-risk dinner on Tue
 | Time (CEST) | Session | Speaker |
 |---|---|---|
 | 08:30 – 08:35 | Welcome and overview | Conveners |
-| 08:35 – 08:50 | [Introduction I: Overview of compound events](materials/01-intro-compound-events/index.qmd) | Chris White |
-| 08:50 – 09:05 | [Introduction II: From single-hazard to multi-risk](materials/02-intro-multi-risk/index.qmd) | Marleen de Ruiter |
-| 09:05 – 09:40 | [Application I: Vine copulas for multivariate dependence](materials/03-vine-copulas/index.qmd) | Judith Claassen |
-| 09:40 – 10:15 | [Application II: LLM impact extraction from news media](materials/04-llm-impact-extraction/index.qmd) | Taís M. Nunes Carvalho |
+| 08:35 – 08:50 | [Introduction I: Overview of compound events](materials/01-intro-compound-events/index.qmd) | [Chris White](about.qmd#chris-white) |
+| 08:50 – 09:05 | [Introduction II: From single-hazard to multi-risk](materials/02-intro-multi-risk/index.qmd) | [Marleen de Ruiter](about.qmd#marleen-de-ruiter) |
+| 09:05 – 09:40 | [Application I: Vine copulas for multivariate dependence](materials/03-vine-copulas/index.qmd) | [Judith Claassen](about.qmd#judith-claassen) |
+| 09:40 – 10:15 | [Application II: Extracting climate impacts from text with LLMs](materials/04-llm-impact-extraction/index.qmd) | [Taís M. Nunes Carvalho](about.qmd#tais-nunes-carvalho) |
 
 :::
