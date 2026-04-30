@@ -9,7 +9,7 @@ title: "About"
 ![](images/chris_strath_webpage.jpg){.rounded-circle width="130px"}
 :::
 ::: {.column width="80%"}
-**Chris White** | University of Strathclyde · [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-1791-4784){target="_blank"} [🌐](https://www.strath.ac.uk/staff/whitechristopherdr/){target="_blank"}\
+**Chris White** | University of Strathclyde | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-1791-4784){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://www.strath.ac.uk/staff/whitechristopherdr/){target="_blank"}\
 
 Professor Chris White is Head of the Centre for Water, Environment, Sustainability
 and Public Health at the University of Strathclyde in Glasgow. His research
@@ -25,7 +25,7 @@ across systems and critical infrastructure. He leads several projects and activi
 ![](images/marleen_vu_page.webp){.rounded-circle width="130px"}
 :::
 ::: {.column width="80%"}
-**Marleen de Ruiter** | Vrije Universiteit Amsterdam · [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-5991-8842){target="_blank"} [🌐](https://vu.nl/en/research/scientists/marleen-de-ruiter){target="_blank"}\
+**Marleen de Ruiter** | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-5991-8842){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://vu.nl/en/research/scientists/marleen-de-ruiter){target="_blank"}\
 
 Marleen de Ruiter is an Assistant Professor in the Department of Water and Climate
 Risk at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam.
@@ -42,7 +42,7 @@ She is an expert on consecutive disasters and systemic risk, currently serving a
 ![](images/judith_github.jpg){.rounded-circle width="130px"}
 :::
 ::: {.column width="80%"}
-**Judith Claassen** | Vrije Universiteit Amsterdam · [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0000-2979-1297){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/judithclaassen){target="_blank"} [🌐](https://research.vu.nl/en/persons/judith-claassen/){target="_blank"}\
+**Judith Claassen** | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0000-2979-1297){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/judithclaassen){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://research.vu.nl/en/persons/judith-claassen/){target="_blank"}\
 
 Judith Claassen is a researcher at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She earned her bachelor degree in Earth and Environmental Sciences at the Amsterdam University College, and holds a master in Civil Engineering: Water Management from TU Delft. Her research focuses on modelling multi-hazard events using probabilistic methods, such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also served as the first chair of the Early Career Researcher board.
 :::
@@ -55,7 +55,7 @@ Judith Claassen is a researcher at the Institute for Environmental Studies (IVM)
 ![](images/tais_square.jpeg){.rounded-circle width="130px"}
 :::
 ::: {.column width="80%"}
-**Taís M. Nunes Carvalho** | Helmholtz Centre for Environmental Research (UFZ) · [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8658-9781){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/taiscarvalho){target="_blank"} [🌐](https://taiscarvalho.com/){target="_blank"}\
+**Taís M. Nunes Carvalho** | Helmholtz Centre for Environmental Research (UFZ) | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8658-9781){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/taiscarvalho){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://taiscarvalho.com/){target="_blank"}\
 
 Taís M. Nunes Carvalho is a researcher in the Helmholtz Center for Environmental Research. Taís' research integrates data science methods, including machine learning, optimization, and text mining, to support water resources planning and management. Her current work is focused on identifying the cascading impacts of natural hazards using text data, and currently leads the Junior Research Group [**navigate**](https://www.ufz.de/index.php?en=52694&nopagecache){target="_blank"}, focusing on sustainable water management and decision-making.
 :::
@@ -66,7 +66,7 @@ Taís M. Nunes Carvalho is a researcher in the Helmholtz Center for Environmenta
 - **Guilherme Mendoza Guimarães** | INRAE, HYCAR, France
 - **Joren Janzing** | WSL Institute for Snow and Avalanche Research SLF, Switzerland
 - **Leonore Boelée** | Water and Environment, HR Wallingford, United Kingdom
-- **Ilias Pechlivanidis** | SMHI (Swedish Meteorological and Hydrological Institute), Sweden · [🌐](https://www.pechlivanidis-hydro.com/){target="_blank"}
+- **Ilias Pechlivanidis** | SMHI (Swedish Meteorological and Hydrological Institute), Sweden | [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://www.pechlivanidis-hydro.com/){target="_blank"}
 - **Maria-Helena Ramos** | INRAE, HYCAR, France
 
 *Co-organized by: AS6 · CL6 · HS11 · NH14*

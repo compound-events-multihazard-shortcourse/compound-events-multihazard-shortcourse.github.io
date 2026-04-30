@@ -44,6 +44,13 @@ main h2 {
   text-align: justify;
 }
 
+// Icon links (ORCID, GitHub, globe)
+// remove underline from image-only links
+
+a:has(> img) {
+  text-decoration: none;
+}
+
 
 // Speaker cards ---------------------------------------------------------------
 // Targets Quarto's .columns layout used in index.qmd
