@@ -24,26 +24,23 @@ website:
         menu:
           - text: "Vine Copulas: Overview & Slides"
             href: materials/03-vine-copulas/index.qmd
-          - text: "Notebook 1: Bivariate Copulas"
+          - text: "Jupyter notebook 1: Bivariate Copulas"
             href: materials/03-vine-copulas/bivariatecopulas.ipynb
-          - text: "Notebook 2: Vine Copulas"
+          - text: "Jupyter notebook 2: Vine Copulas"
             href: materials/03-vine-copulas/vinecopulas.ipynb
           - text: "---"
-          - text: "LLM Impact Extraction: Overview & Slides"
+          - text: "Extracting Climate Impacts from Text with LLMs: Overview"
             href: materials/04-llm-impact-extraction/index.qmd
-          - text: "Notebook: Impact Extraction"
-            href: materials/04-llm-impact-extraction/notebook.ipynb
+          - text: "Jupyter notebook"
+            href: materials/04-llm-impact-extraction/tutorial.ipynb
+      - text: "About"
+        href: about.qmd
 
   page-footer:
     border: true
     background: light
-    left: |
-      [![MedEWSa](/images/logos/Logo_MedEWSa_PNG_TRASPARENT.png){height="48px" style="margin-right:1.2rem;"}](https://medewsa.eu)
-      [![EU Funded](/images/logos/EN_FundedbytheEU_RGB_POS.png){height="48px"}](https://ec.europa.eu)
     center: |
       [![](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-    right: |
-      This repository is funded by the European Union. Its contents are the sole responsibility of the author(s) and do not necessarily reflect the views of the European Union.
 
 format:
   html:
