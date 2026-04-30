@@ -15,12 +15,12 @@ Materials for this session will be posted shortly before the course.
 This presentation introduces the multi-hazard and compound events dimension of
 complex risk, and complements the broader multi-risk overview that follows. It covers three areas:
 
-- **Compound event concepts and typologies**, including preconditioned, multivariate, temporally compounding, and spatially compounding events, and how these categories describe combinations of hazards and drivers that co-occur or cascade in space and time.
+- **Compound event concepts and typologies**, including preconditioned, multivariate, temporally compounding, and spatially compounding events, and how these categories describe combinations of hazards and drivers that co-occur or cascade in space and time
 
-- **Methodological challenges** specific to each typology, and the statistical and copula-based approaches used for compound event analysis *[placeholder: confirm additional approaches covered]*.
+- **Methodological challenges** specific to each typology, and the statistical and copula-based approaches used for compound event analysis
 
 - **Recent examples** of compound events that illustrate these concepts and
-  challenges.
+  challenges
 
 ## Slides
 
