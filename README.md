@@ -57,37 +57,21 @@ materials/
 
 ## Speakers
 
-<div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
-  <img src="images/chris_strath_webpage.jpg" style="border-radius: 50%; width: 100px; flex-shrink: 0;">
-  <div>
-    <strong>Chris White</strong> | University of Strathclyde<br>
-    Professor Chris White is Head of the Centre for Water, Environment, Sustainability and Public Health at the University of Strathclyde. His research focuses on cascading and interconnected multi-hazard risks across systems and critical infrastructure. He leads the <a href="https://www.cost.eu/actions/CA24144/" target="_blank">ANTICIPATE</a> COST Action on extended-range multi-hazard predictions and early warnings, and contributes to the Horizon Europe <a href="https://mediate-project.eu/" target="_blank">MEDiate</a> and <a href="https://www.norsar.no/projects/together/" target="_blank">TOGETHER</a> projects on multi-hazard risk management.
-  </div>
-</div>
+**Chris White** | University of Strathclyde
 
-<div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
-  <img src="images/marleen_vu_page.webp" style="border-radius: 50%; width: 100px; flex-shrink: 0;">
-  <div>
-    <strong>Marleen de Ruiter</strong> | Vrije Universiteit Amsterdam<br>
-    Marleen de Ruiter is an Assistant Professor at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam, working on multi-hazard risk modelling, early warning systems, and the temporal dynamics of disaster vulnerability. She co-chairs the <a href="https://www.risk-kan.org/" target="_blank">RiskKAN</a> network and was awarded the <a href="https://www.egu.eu/awards-medals/division-outstanding-ecs-award/2024/marleen-c-de-ruiter/" target="_blank">EGU Natural Hazards Division Outstanding Early Career Scientist</a> award in 2024.
-  </div>
-</div>
+Professor Chris White is Head of the Centre for Water, Environment, Sustainability and Public Health at the University of Strathclyde. His research focuses on cascading and interconnected multi-hazard risks across systems and critical infrastructure. He leads the [ANTICIPATE](https://www.cost.eu/actions/CA24144/) COST Action on extended-range multi-hazard predictions and early warnings, and contributes to the Horizon Europe [MEDiate](https://mediate-project.eu/) and [TOGETHER](https://www.norsar.no/projects/together/) projects on multi-hazard risk management.
 
-<div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
-  <img src="images/judith_github.jpg" style="border-radius: 50%; width: 100px; flex-shrink: 0;">
-  <div>
-    <strong>Judith Claassen</strong> | Vrije Universiteit Amsterdam<br>
-    Judith Claassen is a researcher at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam, where her work focuses on modelling multi-hazard events using probabilistic methods such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also chaired the Early Career Researcher board.
-  </div>
-</div>
+**Marleen de Ruiter** | Vrije Universiteit Amsterdam
 
-<div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
-  <img src="images/tais.jpeg" style="border-radius: 50%; width: 100px; flex-shrink: 0;">
-  <div>
-    <strong>Taís M. Nunes Carvalho</strong> | Helmholtz Centre for Environmental Research (UFZ)<br>
-    Taís M. Nunes Carvalho is a researcher at the Helmholtz Centre for Environmental Research, where her work integrates data science methods (machine learning, optimisation, text mining) to support water resources planning and management. She leads the <a href="https://www.ufz.de/index.php?en=52694&nopagecache" target="_blank"><strong>navigate</strong></a> Junior Research Group, with current research focused on identifying cascading impacts of natural hazards from text data.
-  </div>
-</div>
+Marleen de Ruiter is an Assistant Professor at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam, working on multi-hazard risk modelling, early warning systems, and the temporal dynamics of disaster vulnerability. She co-chairs the [RiskKAN](https://www.risk-kan.org/) network and was awarded the [EGU Natural Hazards Division Outstanding Early Career Scientist](https://www.egu.eu/awards-medals/division-outstanding-ecs-award/2024/marleen-c-de-ruiter/) award in 2024.
+
+**Judith Claassen** | Vrije Universiteit Amsterdam
+
+Judith Claassen is a researcher at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam, where her work focuses on modelling multi-hazard events using probabilistic methods such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also chaired the Early Career Researcher board.
+
+**Taís M. Nunes Carvalho** | Helmholtz Centre for Environmental Research (UFZ)
+
+Taís M. Nunes Carvalho is a researcher at the Helmholtz Centre for Environmental Research, where her work integrates data science methods (machine learning, optimisation, text mining) to support water resources planning and management. She leads the [navigate](https://www.ufz.de/index.php?en=52694&nopagecache) Junior Research Group, with current research focused on identifying cascading impacts of natural hazards from text data.
 
 ---
 
