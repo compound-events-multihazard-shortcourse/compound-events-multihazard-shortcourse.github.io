@@ -1,6 +1,10 @@
 ---
 title: "Compound Events and Multi-Hazard Analytics"
 subtitle: "EGU26 Short Course SC2.1"
+format:
+  html:
+    grid:
+      body-width: 900px
 ---
 
 ---
