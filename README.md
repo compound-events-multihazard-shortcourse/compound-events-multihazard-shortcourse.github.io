@@ -102,7 +102,7 @@ Judith Claassen is a researcher at the Institute for Environmental Studies (IVM)
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 20%;">
-    <img src="images/tais_github.jpg" style="border-radius: 50%; width: 130px;">
+    <img src="images/tais.jpeg" style="border-radius: 50%; width: 130px;">
   </div>
   <div style="flex: 80%;">
     </div>
