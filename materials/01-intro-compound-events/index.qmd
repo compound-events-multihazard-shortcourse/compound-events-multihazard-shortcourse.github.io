@@ -7,7 +7,7 @@ Materials for this session will be posted shortly before the course.
 :::
 
 ::: {.callout-note title="Speaker" icon=false}
-[**Chris White**](../../about.qmd#chris-white) | University of Strathclyde | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-1791-4784){target="_blank"} [<i class="bi bi-globe2"></i>](https://www.strath.ac.uk/staff/whitechristopherdr/){target="_blank"}
+[**Chris White**](../../about.qmd#chris-white) | University of Strathclyde | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-1791-4784){target="_blank" title="ORCID Profile"} [<i class="bi bi-globe2"></i>](https://www.strath.ac.uk/staff/whitechristopherdr/){target="_blank" title="Personal webpage"}
 :::
 
 ## Overview
