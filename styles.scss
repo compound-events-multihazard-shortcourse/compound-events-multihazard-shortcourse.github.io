@@ -146,7 +146,20 @@ img.figure-img,
 .nav-footer {
   background-color: #f8f9fa;
   border-top: 1px solid #dee2e6;
-  padding: 1.25rem 2rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-footer-center p {
+  margin: 0;
+  line-height: 1;
 }
 
 .nav-footer-left {
