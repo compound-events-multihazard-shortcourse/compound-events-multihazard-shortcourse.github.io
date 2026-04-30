@@ -6,21 +6,8 @@ title: "From Single-Hazard to Multi-Risk"
 Materials for this session will be posted shortly before the course.
 :::
 
-**Speaker:** Marleen de Ruiter | Vrije Universiteit Amsterdam
-
-::: {.columns .align-items-center}
-::: {.column width="20%"}
-![](../../images/marleen_vu_page.webp){.rounded-circle width="130px"}
-:::
-::: {.column width="80%"}
-Marleen de Ruiter is an Assistant Professor in the Department of Water and Climate
-Risk at the Institute for Environmental Studies (IVM), Vrije Universiteit Amsterdam.
-Her research focuses on multi-hazard risk modelling, early warning systems, and the
-temporal dynamics of disaster vulnerability.
-She is an expert on consecutive disasters and systemic risk, currently serving as the co-chair of the&nbsp;<a href="https://www.risk-kan.org/" target="_blank">RiskKAN</a>&nbsp;network and co-leading the Amsterdam Sustainability Institute (<a href="https://vu.nl/en/about-vu/research-institutes/amsterdam-sustainability-institute/more-about/asi-cluster-natural-hazards-and-society" target="_blank">ASI</a>) cluster on Natural Hazards &amp; Society. In 2024, she was honored with the&nbsp;<a href="https://www.egu.eu/awards-medals/division-outstanding-ecs-award/2024/marleen-c-de-ruiter/" target="_blank">EGU Natural Hazards Division Outstanding Early Career Scientist</a>&nbsp;award.\
-
-:computer: <https://vu.nl/en/research/scientists/marleen-de-ruiter>
-:::
+::: {.callout-note title="Speaker" icon=false}
+[**Marleen de Ruiter**](../../about.qmd#marleen-de-ruiter) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-5991-8842){target="_blank"} [<i class="bi bi-globe2"></i>](https://vu.nl/en/research/scientists/marleen-de-ruiter){target="_blank"}
 :::
 
 ## Overview

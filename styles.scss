@@ -44,6 +44,13 @@ main h2 {
   text-align: justify;
 }
 
+// Icon links (ORCID, GitHub, globe)
+// remove underline from image-only links
+
+a:has(> img) {
+  text-decoration: none;
+}
+
 
 // Speaker cards ---------------------------------------------------------------
 // Targets Quarto's .columns layout used in index.qmd
@@ -71,6 +78,8 @@ img.rounded-circle {
 .navbar .dropdown-menu .dropdown-item[href$="bivariatecopulas.ipynb"],
 .navbar .dropdown-menu .dropdown-item[href$="vinecopulas.html"],
 .navbar .dropdown-menu .dropdown-item[href$="vinecopulas.ipynb"],
+.navbar .dropdown-menu .dropdown-item[href$="tutorial.html"],
+.navbar .dropdown-menu .dropdown-item[href$="tutorial.ipynb"],
 .navbar .dropdown-menu .dropdown-item[href*="notebook"] {
   padding-left: 2rem;
   font-size: 0.9em;
@@ -139,7 +148,20 @@ img.figure-img,
 .nav-footer {
   background-color: #f8f9fa;
   border-top: 1px solid #dee2e6;
-  padding: 1.25rem 2rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-footer-center p {
+  margin: 0;
+  line-height: 1;
 }
 
 .nav-footer-left {

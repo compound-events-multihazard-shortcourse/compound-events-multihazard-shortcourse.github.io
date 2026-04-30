@@ -1,0 +1,53 @@
+---
+title: "Extracting Climate Impacts from Text with LLMs"
+format:
+  html:
+    grid:
+      body-width: 800px
+---
+
+::: {.callout-note title="Speaker" icon=false}
+[**Taís M. Nunes Carvalho**](../../about.qmd#tais-nunes-carvalho) | Helmholtz Centre for Environmental Research (UFZ) | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8658-9781){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/taiscarvalho){target="_blank"} [<i class="bi bi-globe2"></i>](https://taiscarvalho.com/){target="_blank"}
+:::
+
+## Overview
+
+This presentation covers the use of Natural Language Processing (NLP) and Large Language Models (LLM) to extract structured, machine-readable information about climate hazards and their impacts from unstructured  text (news articles, operational reports, scientific papers), organised around three areas:
+
+- **The extraction pipeline**, including keyword-based and classifier-based filtering
+  of climate-related articles, text cleaning and deduplication, and the use of
+  zero-shot LLM prompting with a constrained output schema to extract hazard codes,
+  dates, locations, and quantitative and qualitative impact records as JSON
+
+- **Evaluating LLM outputs**, including the construction of gold standard
+  annotations, field-level metrics, and the responsible use of LLMs in research
+
+- **Applications and extensions**, including multilingual processing of humanitarian
+  reports, mapping of cascading impacts across sectors, and existing datasets built
+  with NLP approach
+
+No API key is required to follow the tutorial: pre-computed LLM outputs are included so you can follow the full evaluation workflow immediately. An optional section shows how to run live extractions using OpenAI, Groq, HuggingFace, or Anthropic.
+
+## Setup
+
+You need **Python 3.10+** (pip is included with Python).
+
+1. Download the environment file: [requirements.txt](requirements.txt)
+
+2. Install the dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Launch Jupyter and open the notebook file:
+
+   ```bash
+   jupyter notebook
+   ```
+
+## Notebook
+
+:page_facing_up: [View rendered jupyter notebook](tutorial.html)
+
+:arrow_down: [Download jupyter notebook](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/04-llm-impact-extraction/tutorial.ipynb){target="_blank"}

@@ -10,17 +10,8 @@ format:
 Slides for this session will be posted shortly before the course.
 :::
 
-**Speaker:** Judith Claassen | Vrije Universiteit Amsterdam
-
-::: {.columns .align-items-center}
-::: {.column width="20%"}
-![](../../images/judith_github.jpg){.rounded-circle width="130px"}
-:::
-::: {.column width="80%"}
-Judith Claassen is a researcher at the Institute for Environmental Studies (IVM) at Vrije Universiteit Amsterdam. She earned her bachelor degree in Earth and Environmental Sciences at the Amsterdam University College, and holds a master in Civil Engineering: Water Management from TU Delft. Her research focuses on modelling multi-hazard events using probabilistic methods, such as vine copulas. Her PhD was funded by the Horizon 2020 MYRIAD-EU project, where she also served as the first chair of the Early Career Researcher board\
-
-:computer: <https://research.vu.nl/en/persons/judith-claassen/>
-:::
+::: {.callout-note title="Speaker" icon=false}
+[**Judith Claassen**](../../about.qmd#judith-claassen) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0000-2979-1297){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/judithclaassen){target="_blank"} [<i class="bi bi-globe2"></i>](https://research.vu.nl/en/persons/judith-claassen/){target="_blank"}
 :::
 
 ## Overview
@@ -43,10 +34,10 @@ areas:
 
 ## Setup
 
-You need **Python 3.10+** and the `vinecopulas` package. Install it with pip:
+You need **Python 3.10+** and the [`vinecopulas`](https://github.com/VU-IVM/VineCopulas){target="_blank"} package (pip is included with Python). Install the dependencies:
 
 ```bash
-pip install vinecopulas jupyterlab "pandas<2.2" "numpy<1.27" "matplotlib<3.9"
+pip install vinecopulas notebook "pandas<2.2" "numpy<1.27" "matplotlib<3.9"
 ```
 
 Then launch Jupyter and open the notebook files:
@@ -57,13 +48,21 @@ jupyter notebook
 
 ## Notebooks
 
-::: {.schedule-table}
+::: {.columns}
+::: {.column width="50%"}
+**Part 1: Bivariate Copulas**
 
-| Notebook | Content | Download |
-|---|---|---|
-| Part 1: Bivariate Copulas | Copula families, probability integral transform, fitting, CDF/PDF, conditional sampling | [bivariatecopulas.ipynb](bivariatecopulas.ipynb) |
-| Part 2: Vine Copulas | C-vines, D-vines, multivariate dependence, simulation | [vinecopulas.ipynb](vinecopulas.ipynb) |
+:page_facing_up: [View rendered jupyter notebook](bivariatecopulas.html)
 
+:arrow_down: [Download bivariatecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/bivariatecopulas.ipynb){target="_blank"}
+:::
+::: {.column width="50%"}
+**Part 2: Vine Copulas**
+
+:page_facing_up: [View rendered jupyter notebook](vinecopulas.html)
+
+:arrow_down: [Download vinecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/vinecopulas.ipynb){target="_blank"}
+:::
 :::
 
 ## Slides
