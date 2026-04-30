@@ -69,4 +69,6 @@ Taís M. Nunes Carvalho is a researcher in the Helmholtz Center for Environmenta
 - **Ilias Pechlivanidis** | SMHI (Swedish Meteorological and Hydrological Institute), Sweden | [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://www.pechlivanidis-hydro.com/){target="_blank"}
 - **Maria-Helena Ramos** | INRAE, HYCAR, France
 
+::: {style="text-align: center;"}
 *Co-organized by: AS6 · CL6 · HS11 · NH14*
+:::
