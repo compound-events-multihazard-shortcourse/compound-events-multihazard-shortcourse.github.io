@@ -11,7 +11,7 @@ Slides for this session will be posted shortly before the course.
 :::
 
 ::: {.callout-note title="Speaker" icon=false}
-[**Judith Claassen**](../../about.qmd#judith-claassen) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0000-2979-1297){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/judithclaassen){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://research.vu.nl/en/persons/judith-claassen/){target="_blank"}
+[**Judith Claassen**](../../about.qmd#judith-claassen) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0000-2979-1297){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/judithclaassen){target="_blank"} [<i class="bi bi-globe"></i>](https://research.vu.nl/en/persons/judith-claassen/){target="_blank"}
 :::
 
 ## Overview

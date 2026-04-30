@@ -7,7 +7,7 @@ Materials for this session will be posted shortly before the course.
 :::
 
 ::: {.callout-note title="Speaker" icon=false}
-[**Marleen de Ruiter**](../../about.qmd#marleen-de-ruiter) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-5991-8842){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://vu.nl/en/research/scientists/marleen-de-ruiter){target="_blank"}
+[**Marleen de Ruiter**](../../about.qmd#marleen-de-ruiter) | Vrije Universiteit Amsterdam | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-5991-8842){target="_blank"} [<i class="bi bi-globe"></i>](https://vu.nl/en/research/scientists/marleen-de-ruiter){target="_blank"}
 :::
 
 ## Overview

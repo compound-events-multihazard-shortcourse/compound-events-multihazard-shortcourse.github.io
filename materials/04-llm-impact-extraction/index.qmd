@@ -7,7 +7,7 @@ format:
 ---
 
 ::: {.callout-note title="Speaker" icon=false}
-[**Taís M. Nunes Carvalho**](../../about.qmd#tais-nunes-carvalho) | Helmholtz Centre for Environmental Research (UFZ) | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8658-9781){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/taiscarvalho){target="_blank"} [![](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe2.svg){height="16px"}](https://taiscarvalho.com/){target="_blank"}
+[**Taís M. Nunes Carvalho**](../../about.qmd#tais-nunes-carvalho) | Helmholtz Centre for Environmental Research (UFZ) | [![ORCID iD](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8658-9781){target="_blank"} [![GitHub](https://github.githubassets.com/favicons/favicon.png){height="16px"}](https://github.com/taiscarvalho){target="_blank"} [<i class="bi bi-globe"></i>](https://taiscarvalho.com/){target="_blank"}
 :::
 
 ## Overview
