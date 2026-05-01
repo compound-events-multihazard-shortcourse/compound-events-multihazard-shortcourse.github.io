@@ -3,7 +3,7 @@
 📅 May 06, 2026\
 ⏰ 08:30 – 10:15 (CEST)\
 🚪 Room -2.82, Austria Center Vienna\
-📁 All materials: <https://egu26-compound-events-sc.github.io/>\
+📁 All materials: <https://compound-events-multihazard-shortcourse.github.io/>\
 🌐 EGU session description: <https://www.egu26.eu/session/56950>
 
 ---
@@ -33,7 +33,7 @@ This EGU short course offers conceptual background and hands-on experience with 
 
 To run the hands-on notebooks locally, clone the repository and install the
 dependencies listed in each application. Rendered versions of
-all notebooks are available on the [course website](https://egu26-compound-events-sc.github.io/).
+all notebooks are available on the [course website](https://compound-events-multihazard-shortcourse.github.io/).
 
 
 ```
