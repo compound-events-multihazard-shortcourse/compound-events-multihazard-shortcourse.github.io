@@ -42,7 +42,7 @@ materials/
 │   └── to_be_added.pdf      # to be added
 │
 ├── 02-intro-multi-risk/         # Introduction II: From single-hazard to multi-risk
-│   └── to_be_added.pdf      # to be added
+│   └── EGU26_short_course_Marleen.pdf
 │
 ├── 03-vine-copulas/             # Application I: Vine copulas
 │   ├── bivariatecopulas.ipynb   # Part 1: Bivariate copulas
