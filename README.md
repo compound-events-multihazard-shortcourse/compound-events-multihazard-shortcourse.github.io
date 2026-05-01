@@ -39,7 +39,7 @@ all notebooks are available on the [course website](https://compound-events-mult
 ```
 materials/
 ├── 01-intro-compound-events/    # Introduction I: Overview of compound events
-│   └── to_be_added.pdf      # to be added
+│   └── EGU26_Chris_White_Presentation.pdf
 │
 ├── 02-intro-multi-risk/         # Introduction II: From single-hazard to multi-risk
 │   └── EGU26_short_course_Marleen.pdf
