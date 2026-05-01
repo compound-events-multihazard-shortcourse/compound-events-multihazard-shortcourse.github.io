@@ -12,7 +12,7 @@ format:
 <i class="bi bi-calendar-event"></i> May 06, 2026\
 <i class="bi bi-clock"></i> 08:30 – 10:15 (CEST)\
 <i class="bi bi-door-open"></i> Room -2.82, Austria Center Vienna\
-<i class="bi bi-folder"></i> All materials: [https://egu26-compound-events-sc.github.io/](https://egu26-compound-events-sc.github.io/){target="_blank"}\
+<i class="bi bi-folder"></i> All materials: [https://compound-events-multihazard-shortcourse.github.io/](https://compound-events-multihazard-shortcourse.github.io/){target="_blank"}\
 <i class="bi bi-globe2"></i> EGU session description: [https://www.egu26.eu/session/56950](https://www.egu26.eu/session/56950){target="_blank"}
 
 ---

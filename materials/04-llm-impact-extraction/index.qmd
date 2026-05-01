@@ -50,4 +50,4 @@ You need **Python 3.10+** (pip is included with Python).
 
 <i class="bi bi-journal-text"></i> [View rendered jupyter notebook](tutorial.html)
 
-<i class="bi bi-download"></i> [Download jupyter notebook](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/04-llm-impact-extraction/tutorial.ipynb){target="_blank"}
+<i class="bi bi-download"></i> [Download jupyter notebook](https://github.com/compound-events-multihazard-shortcourse/compound-events-multihazard-shortcourse.github.io/blob/main/materials/04-llm-impact-extraction/tutorial.ipynb){target="_blank"}

@@ -54,14 +54,14 @@ jupyter notebook
 
 <i class="bi bi-journal-text"></i> [View rendered jupyter notebook](bivariatecopulas.html)
 
-<i class="bi bi-download"></i> [Download bivariatecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/bivariatecopulas.ipynb){target="_blank"}
+<i class="bi bi-download"></i> [Download bivariatecopulas.ipynb](https://github.com/compound-events-multihazard-shortcourse/compound-events-multihazard-shortcourse.github.io/blob/main/materials/03-vine-copulas/bivariatecopulas.ipynb){target="_blank"}
 :::
 ::: {.column width="50%"}
 **Part 2: Vine Copulas**
 
 <i class="bi bi-journal-text"></i> [View rendered jupyter notebook](vinecopulas.html)
 
-<i class="bi bi-download"></i> [Download vinecopulas.ipynb](https://github.com/egu26-compound-events-sc/egu26-compound-events-sc.github.io/blob/main/materials/03-vine-copulas/vinecopulas.ipynb){target="_blank"}
+<i class="bi bi-download"></i> [Download vinecopulas.ipynb](https://github.com/compound-events-multihazard-shortcourse/compound-events-multihazard-shortcourse.github.io/blob/main/materials/03-vine-copulas/vinecopulas.ipynb){target="_blank"}
 :::
 :::
 
