@@ -16,7 +16,7 @@ Slides for this session will be posted shortly before the course.
 
 ## Overview
 
-This presentation covers the use of copulas for modelling multivariate dependencies
+This presentation and python tutorial cover the use of copulas for modelling multivariate dependencies
 between the variables involved in compound and extreme events, organised around three
 areas:
 
