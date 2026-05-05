@@ -102,7 +102,7 @@
     "href": "index.html#description",
     "title": "Compound Events and Multi-Hazard Analytics",
     "section": "Description",
-    "text": "Description\n\nCompounding hazards can lead to interconnected or aggravated impacts. In recent years, the analysis of compound events has become essential to understand and to improve our response to such high-impact multi-hazard disasters.\nCompound events involve two events happening either simultaneously or sequentially. These events can be independent of each other (in which the outcome of one event has no effect on the probability of the other), or they can be dependent (in which the outcome of one event affects the probability of another). In the context of weather, climate or hydrology, compound events refer to combinations of multiple drivers or hazards which can lead to large impacts and disasters. These compound weather, climate or hydrological events can be related to extreme conditions themselves (e.g. storms, heatwaves, floods and droughts), or to combinations of events that are themselves not extremes but lead to an extreme event or significant impact when combined. This EGU short course offers conceptual background and hands-on experience with state-of-the-art methods to study compound events. The session start with two introductory talks: we will give an overview of the typology of compound events and of the methodologies used to study these events. Furthermore, we discuss the evolution of the multi-risk field, including vulnerability dynamics, policy frameworks, and adaptation challenges. These introductory talks are then followed by two applied sessions that provide hands-on training: we will discuss an application of vine copulas for multivariate dependence analysis, and the application of large language models for structured impact extraction from news media.\n\nAll course material and instructions to run the applications are and will remain available online on this website.\n\nShort course attendees are welcome to attend the annual multi-risk dinner on Tuesday May 5th - 19:00h at Gleis//Garten (Eichenstraße 2, 1120 Wien, Austria) by signing up here"
+    "text": "Description\n\nCompounding hazards can lead to interconnected or aggravated impacts. In recent years, the analysis of compound events has become essential to understand and to improve our response to such high-impact multi-hazard disasters.\nCompound events involve two events happening either simultaneously or sequentially. These events can be independent of each other (in which the outcome of one event has no effect on the probability of the other), or they can be dependent (in which the outcome of one event affects the probability of another). In the context of weather, climate or hydrology, compound events refer to combinations of multiple drivers or hazards which can lead to large impacts and disasters. These compound weather, climate or hydrological events can be related to extreme conditions themselves (e.g. storms, heatwaves, floods and droughts), or to combinations of events that are themselves not extremes but lead to an extreme event or significant impact when combined. This EGU short course offers conceptual background and hands-on experience with state-of-the-art methods to study compound events. The session start with two introductory talks: we will give an overview of the typology of compound events and of the methodologies used to study these events. Furthermore, we discuss the evolution of the multi-risk field, including vulnerability dynamics, policy frameworks, and adaptation challenges. These introductory talks are then followed by two applied sessions that provide hands-on training: we will discuss an application of vine copulas for multivariate dependence analysis, and the application of large language models for structured impact extraction from news media.\n\nAll materials and setup instructions are available on the short course website.\n\nShort course attendees are welcome to attend the annual multi-risk dinner on Tuesday May 5th - 19:00h at Gleis//Garten (Eichenstraße 2, 1120 Wien, Austria) by signing up here"
   },
   {
     "objectID": "index.html#schedule",
@@ -270,14 +270,14 @@
     "href": "materials/03-vine-copulas/index.html",
     "title": "Vine Copulas for Multivariate Dependence",
     "section": "",
-    "text": "Note\n\n\n\nSlides for this session will be posted shortly before the course."
+    "text": "NoteSpeaker\n\n\n\nJudith Claassen | Vrije Universiteit Amsterdam |"
   },
   {
     "objectID": "materials/03-vine-copulas/index.html#overview",
     "href": "materials/03-vine-copulas/index.html#overview",
     "title": "Vine Copulas for Multivariate Dependence",
     "section": "Overview",
-    "text": "Overview\nThis presentation covers the use of copulas for modelling multivariate dependencies between the variables involved in compound and extreme events, organised around three areas:\n\nCopula foundations, including Sklar’s theorem and how copulas separate marginal distributions from the dependence structure, and the main bivariate copula families used to capture symmetric, asymmetric, and tail-dependent relationships\nVine copulas for higher dimensions, including the pair-copula construction that builds multivariate models from bivariate building blocks, the tree structure of regular vines, and the C-vine and D-vine subclasses\nApplications to extreme events, including random and conditional sampling from fitted copulas, and their use in characterising the joint occurrence of hazards and drivers for compound event analysis"
+    "text": "Overview\nThis presentation and python tutorial cover the use of copulas for modelling multivariate dependencies between the variables involved in compound and extreme events, organised around three areas:\n\nCopula foundations, including Sklar’s theorem and how copulas separate marginal distributions from the dependence structure, and the main bivariate copula families used to capture symmetric, asymmetric, and tail-dependent relationships\nVine copulas for higher dimensions, including the pair-copula construction that builds multivariate models from bivariate building blocks, the tree structure of regular vines, and the C-vine and D-vine subclasses\nApplications to extreme events, including random and conditional sampling from fitted copulas, and their use in characterising the joint occurrence of hazards and drivers for compound event analysis"
   },
   {
     "objectID": "materials/03-vine-copulas/index.html#setup",
@@ -298,7 +298,7 @@
     "href": "materials/03-vine-copulas/index.html#slides",
     "title": "Vine Copulas for Multivariate Dependence",
     "section": "Slides",
-    "text": "Slides\nSlides will be posted shortly before the course."
+    "text": "Slides\n Download slides (PDF)"
   },
   {
     "objectID": "materials/04-llm-impact-extraction/index.html",
