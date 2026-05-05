@@ -46,7 +46,8 @@ materials/
 │
 ├── 03-vine-copulas/             # Application I: Vine copulas
 │   ├── bivariatecopulas.ipynb   # Part 1: Bivariate copulas
-│   └── vinecopulas.ipynb        # Part 2: Vine copulas
+│   ├── vinecopulas.ipynb        # Part 2: Vine copulas
+│   └── vinecopulaintrolecture_EGU2026.pdf
 │
 └── 04-llm-impact-extraction/    # Application II: LLM impact extraction from text
     ├── tutorial.ipynb
